@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:authorization/core/repositories/workouts/models/workout.dart';
-import 'package:authorization/core/services/workouts_firebase_realtime_database_service.dart';
+import 'package:authorization/core/services/workout_create_service.dart';
+import 'package:authorization/core/services/workouts_user_service.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -15,13 +16,13 @@ class WorkoutBloc extends Bloc<WorkoutEvent, WorkoutState> {
     on<LoadWorkoutsList>(_load);
     on<WorkoutDetailsTapped>((event, emit) =>
         emit(NextWorkoutDetailsPage(workoutId: event.workoutId)));
-    on<WorkoutCreateTapped>((event, emit) => emit(NextCreateWorkoutPage()));
-    on<WorkoutDeleteTapped>((event, emit) async {
-      await userWorkoutsService.deleteWorkoutById(event.workoutId);
-      emit(NextDeleteWorkoutPage(workoutId: event.workoutId));
+    on<WorkoutCreateTapped>((event, emit) async {
+      await GetIt.I<WorkoutCreateService>().setSimpleWorkoutCreationData();
+
+      emit(NextCreateWorkoutPage());
     });
   }
-  final UserWorkoutsFirebaseRealtimeDatabaseService userWorkoutsService;
+  final WorkoutsUserService userWorkoutsService;
 
   FutureOr<void> _load(
       LoadWorkoutsList event, Emitter<WorkoutState> emit) async {

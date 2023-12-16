@@ -13,12 +13,16 @@ class WorkoutDetailsLoading extends WorkoutDetailsState {
 }
 
 class WorkoutDetailsLoaded extends WorkoutDetailsState {
-  WorkoutDetailsLoaded({required this.workout});
+  WorkoutDetailsLoaded({
+    required this.workout,
+    required this.exercisesGifUrl,
+  });
 
   final Workout workout;
+  final List<String> exercisesGifUrl;
 
   @override
-  List<Object?> get props => [workout];
+  List<Object?> get props => [workout, exercisesGifUrl];
 }
 
 class NextWorkoutsPage extends WorkoutDetailsState {
@@ -35,14 +39,6 @@ class NextWorkoutPerformingPage extends WorkoutDetailsState {
   List<Object?> get props => [workout];
 }
 
-class WorkoutDetailsErrorState extends WorkoutDetailsState {
-  WorkoutDetailsErrorState({required this.exeption});
-  final Object? exeption;
-
-  @override
-  List<Object?> get props => [exeption];
-}
-
 class NextExerciseDetailsPage extends WorkoutDetailsState {
   NextExerciseDetailsPage({required this.exerciseId});
 
@@ -50,4 +46,31 @@ class NextExerciseDetailsPage extends WorkoutDetailsState {
 
   @override
   List<Object?> get props => [exerciseId];
+}
+
+class ShowWorkoutSettingsPage extends WorkoutDetailsState {
+  ShowWorkoutSettingsPage({
+    required this.workoutId,
+    required this.isUserOwner,
+    required this.isSearchScreen,
+  });
+
+  final int workoutId;
+  final bool isUserOwner;
+  final bool isSearchScreen;
+
+  @override
+  List<Object?> get props => [
+        workoutId,
+        isUserOwner,
+        isSearchScreen,
+      ];
+}
+
+class WorkoutDetailsErrorState extends WorkoutDetailsState {
+  WorkoutDetailsErrorState({required this.exeption});
+  final Object? exeption;
+
+  @override
+  List<Object?> get props => [exeption];
 }

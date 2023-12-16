@@ -19,13 +19,18 @@ class WorkoutCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 100,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(workout.imageUrl),
-          fit: BoxFit.cover,
-        ),
-        borderRadius: const BorderRadius.all(Radius.circular(20)),
-      ),
+      decoration: workout.isUserOwner
+          ? BoxDecoration(
+              color: Colors.pink.withBlue(140),
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
+            )
+          : BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(workout.imageUrl),
+                fit: BoxFit.cover,
+              ),
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
+            ),
       child: Material(
         color: Colors.transparent,
         child: InkWell(
@@ -46,11 +51,11 @@ class WorkoutCard extends StatelessWidget {
               children: [
                 _createData(),
                 workout.isComplete
-                    ? const Padding(
-                        padding: EdgeInsets.only(top: 8),
+                    ? Padding(
+                        padding: const EdgeInsets.only(top: 8),
                         child: Text(
-                          "Complete: date",
-                          style: TextStyle(
+                          "Complete: ${workout.lastComplete!.day}.${workout.lastComplete!.month}",
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
@@ -106,7 +111,7 @@ class WorkoutCard extends StatelessWidget {
         ),
         const SizedBox(height: 2),
         Text(
-          "${workout.minutesWorkoutTime} MIN. · ${workout.exercises.length} EXERCISES",
+          /*"${workout.minutesWorkoutTime} MIN. ·*/ "| ${workout.exercises.length} EXERCISES",
           style: const TextStyle(
             color: Colors.white,
             fontSize: 16,

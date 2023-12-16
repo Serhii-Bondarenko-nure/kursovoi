@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'exercise_card.g.dart';
 
-@HiveType(typeId: IdHiveConstants.exerciseCardsBoxId)
+//@HiveType(typeId: IdHiveConstants.exerciseCardsBoxId)
 @JsonSerializable()
 class ExerciseCard extends Equatable {
   const ExerciseCard({
@@ -20,30 +20,29 @@ class ExerciseCard extends Equatable {
 
   //можно сделать поле, которое явно будет указывать упражнение делается на время или по повторам
   //если на время то будет подключен функционал таймера
-  @HiveField(0)
+  //@HiveField(0)
   final int exerciseTime;
 
-  @HiveField(1)
+  //@HiveField(1)
   final String gifUrl;
 
-  @HiveField(2)
+  //@HiveField(2)
   @JsonKey(
     toJson: _idToJson,
     fromJson: _idFromJson,
   )
-  @HiveField(3)
   final int id;
 
-  @HiveField(4)
+  //@HiveField(3)
   final String name;
 
-  @HiveField(5)
+  //@HiveField(4)
   final int sets;
 
-  @HiveField(6)
+  //@HiveField(5)
   final int repetitions;
 
-  @HiveField(7)
+  //@HiveField(6)
   final String target;
 
   factory ExerciseCard.fromJson(Map<String, dynamic> json) =>

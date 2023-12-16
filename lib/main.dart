@@ -1,8 +1,9 @@
 import 'package:authorization/core/consts/exercises_reporitory_constants.dart';
 import 'package:authorization/core/consts/hive_constants.dart';
 import 'package:authorization/core/repositories/exercises/exercises.dart';
-import 'package:authorization/core/repositories/workouts/workouts.dart';
-import 'package:authorization/core/services/workouts_firebase_realtime_database_service.dart';
+import 'package:authorization/core/services/workout_create_service.dart';
+import 'package:authorization/core/services/workouts_service.dart';
+import 'package:authorization/core/services/workouts_user_service.dart';
 import 'package:authorization/firebase_options.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -84,16 +85,16 @@ Future<void> main() async {
   final bodyPartsBox =
       await Hive.openBox<BodyParts>(NamesHiveConstants.bodyPartsBoxName);
 
-  //Workouts Hive
-  Hive.registerAdapter(WorkoutAdapter());
-  Hive.registerAdapter(ExerciseCardAdapter());
-  Hive.registerAdapter(TypesAdapter());
+  // //Workouts Hive
+  // Hive.registerAdapter(WorkoutAdapter());
+  // Hive.registerAdapter(ExerciseCardAdapter());
+  // Hive.registerAdapter(TypesAdapter());
 
-  final workoutBox =
-      await Hive.openBox<Workout>(NamesHiveConstants.workoutsBoxName);
-  final exerciseCardBox =
-      await Hive.openBox<ExerciseCard>(NamesHiveConstants.exerciseCardsBoxName);
-  final typesBox = await Hive.openBox<Types>(NamesHiveConstants.typesBoxName);
+  // final workoutBox =
+  //     await Hive.openBox<Workout>(NamesHiveConstants.workoutsBoxName);
+  // final exerciseCardBox =
+  //     await Hive.openBox<ExerciseCard>(NamesHiveConstants.exerciseCardsBoxName);
+  // final typesBox = await Hive.openBox<Types>(NamesHiveConstants.typesBoxName);
 
   // final userWorkoutsBox =
   //     await Hive.openBox<Workout>(NamesHiveConstants.userWorkoutsBoxName);
@@ -113,19 +114,32 @@ Future<void> main() async {
             isApiEnable: false,
           ));
 
-  //Workouts Repository
-  GetIt.I.registerLazySingleton<AbstractWorkoutsRepository>(
-    () => WorkoutsRepository(
-      workoutBox: workoutBox,
-      exerciseCardBox: exerciseCardBox,
-      typesBox: typesBox,
+  // //Workouts Repository
+  // GetIt.I.registerLazySingleton<AbstractWorkoutsRepository>(
+  //   () => WorkoutsRepository(
+  //     workoutBox: workoutBox,
+  //     exerciseCardBox: exerciseCardBox,
+  //     typesBox: typesBox,
+  //   ),
+  // );
+
+  //Workouts Service
+  GetIt.I.registerLazySingleton<WorkoutsService>(
+    () => WorkoutsService(
+      firebaseDatabase: firebaseDatabase,
     ),
   );
 
-  //User Workouts Firebase Storage Service
-  GetIt.I.registerLazySingleton<UserWorkoutsFirebaseRealtimeDatabaseService>(
-    () => UserWorkoutsFirebaseRealtimeDatabaseService(
-      //userWorkoutsBox: userWorkoutsBox,
+  //User Workouts Service
+  GetIt.I.registerLazySingleton<WorkoutsUserService>(
+    () => WorkoutsUserService(
+      firebaseDatabase: firebaseDatabase,
+    ),
+  );
+
+  //Workout Create Service
+  GetIt.I.registerLazySingleton<WorkoutCreateService>(
+    () => WorkoutCreateService(
       firebaseDatabase: firebaseDatabase,
     ),
   );

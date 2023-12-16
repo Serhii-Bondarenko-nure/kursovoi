@@ -1,5 +1,6 @@
-import 'package:authorization/core/repositories/workouts/workouts.dart';
-import 'package:authorization/core/services/workouts_firebase_realtime_database_service.dart';
+import 'package:authorization/core/repositories/exercises/exercises.dart';
+import 'package:authorization/core/services/workouts_service.dart';
+import 'package:authorization/core/services/workouts_user_service.dart';
 import 'package:authorization/features/workout_details/bloc/workout_details_bloc.dart';
 import 'package:authorization/features/workout_details/widgets/workout_details_content.dart';
 import 'package:authorization/router/router.dart';
@@ -20,9 +21,10 @@ class WorkoutDetailsScreen extends StatelessWidget {
   final bool isSearchScreen;
 
   final workoutDetailsBloc = WorkoutDetailsBloc(
-      userWorkoutsService:
-          GetIt.I<UserWorkoutsFirebaseRealtimeDatabaseService>(),
-      workoutsRepository: GetIt.I<AbstractWorkoutsRepository>());
+    userWorkoutsService: GetIt.I<WorkoutsUserService>(),
+    workoutsService: GetIt.I<WorkoutsService>(),
+    exersicesRepository: GetIt.I<AbstractExersicesRepository>(),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,10 @@ class WorkoutDetailsScreen extends StatelessWidget {
         listener: (context, state) {
           if (state is NextExerciseDetailsPage) {
             AutoRouter.of(context)
-                .push(ExerciseDetailsRoute(exerciseId: state.exerciseId));
+                .push(ExerciseDetailsRoute(exerciseId: state.exerciseId))
+                .then((result) => workoutDetailsBloc.add(
+                    LoadWorkoutDetailsEvent(
+                        workoutId: workoutId, isSearchScreen: isSearchScreen)));
           } else if (state is NextWorkoutsPage) {
             AutoRouter.of(context).pushAndPopUntil(
                 TabBarRoute(transitionIndex: 0),

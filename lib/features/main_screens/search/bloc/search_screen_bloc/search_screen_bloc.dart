@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:authorization/core/repositories/workouts/workouts.dart';
+import 'package:authorization/core/repositories/workouts/models/models.dart';
+import 'package:authorization/core/services/workouts_service.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -10,15 +11,14 @@ part 'search_screen_event.dart';
 part 'search_screen_state.dart';
 
 class SearchScreenBloc extends Bloc<SearchScreenEvent, SearchScreenState> {
-  SearchScreenBloc({required this.workoutsRepository})
-      : super(SearchInitial()) {
+  SearchScreenBloc({required this.workoutsService}) : super(SearchInitial()) {
     on<LoadTypesList>(_loadTypesList);
     on<WorkoutDetailsTapped>((event, emit) => emit(NextWorkoutDetailsPage(
           workoutId: event.workoutId,
         )));
   }
 
-  final AbstractWorkoutsRepository workoutsRepository;
+  final WorkoutsService workoutsService;
 
   FutureOr<void> _loadTypesList(
       LoadTypesList event, Emitter<SearchScreenState> emit) async {
@@ -27,7 +27,7 @@ class SearchScreenBloc extends Bloc<SearchScreenEvent, SearchScreenState> {
         emit(TypesListLoading());
       }
 
-      final types = await workoutsRepository.getTypesList();
+      final types = await workoutsService.getTypesList();
       emit(TypesListLoaded(types: types));
     } catch (e, st) {
       emit(SearchErrorState(exeption: e));

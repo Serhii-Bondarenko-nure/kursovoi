@@ -21,15 +21,15 @@ class WorkoutsListByTypeLoaded extends WorkoutCardState {
   List<Object?> get props => [workoutsListByType];
 }
 
+class WorkoutsListByTypeIsCollapsed extends WorkoutCardState {
+  @override
+  List<Object?> get props => [];
+}
+
 class WorkoutCardErrorState extends WorkoutCardState {
   WorkoutCardErrorState({required this.exeption});
   final Object? exeption;
 
   @override
   List<Object?> get props => [exeption];
-}
-
-class WorkoutsListByTypeIsCollapsed extends WorkoutCardState {
-  @override
-  List<Object?> get props => [];
 }

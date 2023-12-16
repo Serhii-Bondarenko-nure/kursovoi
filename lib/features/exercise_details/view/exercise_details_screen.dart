@@ -14,7 +14,7 @@ class ExerciseDetailsScreen extends StatelessWidget {
   });
 
   final int exerciseId;
-  final GifController gifCntroller = GifController();
+  final GifController gifCntroller = GifController(autoPlay: true, loop: true);
 
   final exerciseDetailsBloc = ExerciseDetailsBloc(
       exersicesRepository: GetIt.I<AbstractExersicesRepository>());

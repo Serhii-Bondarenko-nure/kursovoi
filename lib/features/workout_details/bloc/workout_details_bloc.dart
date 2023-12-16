@@ -1,7 +1,9 @@
 import 'dart:async';
 
-import 'package:authorization/core/repositories/workouts/workouts.dart';
-import 'package:authorization/core/services/workouts_firebase_realtime_database_service.dart';
+import 'package:authorization/core/repositories/exercises/exercises.dart';
+import 'package:authorization/core/repositories/workouts/models/models.dart';
+import 'package:authorization/core/services/workouts_service.dart';
+import 'package:authorization/core/services/workouts_user_service.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -13,7 +15,8 @@ part 'workout_details_state.dart';
 class WorkoutDetailsBloc
     extends Bloc<WorkoutDetailsEvent, WorkoutDetailsState> {
   WorkoutDetailsBloc({
-    required this.workoutsRepository,
+    required this.workoutsService,
+    required this.exersicesRepository,
     required this.userWorkoutsService,
   }) : super(WorkoutDetailsInitial()) {
     on<LoadWorkoutDetailsEvent>(_load);
@@ -31,10 +34,18 @@ class WorkoutDetailsBloc
     on<ExerciseDetailsTapped>((event, emit) {
       emit(NextExerciseDetailsPage(exerciseId: event.exerciseId));
     });
+    on<WorkoutSettingsTapped>((event, emit) async {
+      emit(ShowWorkoutSettingsPage(
+        workoutId: event.workoutId,
+        isUserOwner: event.isUserOwner,
+        isSearchScreen: event.isSearchScreen,
+      ));
+    });
   }
 
-  final AbstractWorkoutsRepository workoutsRepository;
-  final UserWorkoutsFirebaseRealtimeDatabaseService userWorkoutsService;
+  final WorkoutsService workoutsService;
+  final AbstractExersicesRepository exersicesRepository;
+  final WorkoutsUserService userWorkoutsService;
 
   FutureOr<void> _load(
       LoadWorkoutDetailsEvent event, Emitter<WorkoutDetailsState> emit) async {
@@ -44,9 +55,21 @@ class WorkoutDetailsBloc
       }
 
       final workout = event.isSearchScreen
-          ? await workoutsRepository.getWorkoutById(event.workoutId)
+          ? await workoutsService.getWorkoutById(event.workoutId)
           : await userWorkoutsService.getWorkoutById(event.workoutId);
-      emit(WorkoutDetailsLoaded(workout: workout));
+
+      var exercisesGifUrl = <String>[];
+      for (var exercise in workout.exercises.values) {
+        final exerciseGifUrl = await exersicesRepository
+            .getExerciseById(exercise.id)
+            .then((exercise) => exercise.gifUrl);
+        exercisesGifUrl.add(exerciseGifUrl);
+      }
+
+      emit(WorkoutDetailsLoaded(
+        workout: workout,
+        exercisesGifUrl: exercisesGifUrl,
+      ));
     } catch (e, st) {
       emit(WorkoutDetailsErrorState(exeption: e));
       GetIt.I<Talker>().handle(e, st);

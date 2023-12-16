@@ -31,12 +31,8 @@ class NextExerciseDetailsPage extends ExercisesSearchState {
 }
 
 class NextWorkoutCreatePage extends ExercisesSearchState {
-  NextWorkoutCreatePage({required this.exercise});
-
-  final Exercise exercise;
-
   @override
-  List<Object?> get props => [exercise];
+  List<Object?> get props => [];
 }
 
 class ErrorState extends ExercisesSearchState {

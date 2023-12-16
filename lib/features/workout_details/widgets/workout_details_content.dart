@@ -3,6 +3,7 @@ import 'package:authorization/core/repositories/workouts/models/workout.dart';
 import 'package:authorization/features/common_widgets/fitness_button.dart';
 import 'package:authorization/features/workout_details/bloc/workout_details_bloc.dart';
 import 'package:authorization/features/workout_details/widgets/widgets.dart';
+import 'package:authorization/features/workout_settings_bottmo_shett/view/workout_settings_bottmo_shett_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -47,22 +48,35 @@ class WorkoutDetailsContent extends StatelessWidget {
                 pinned: true,
                 expandedHeight: 260,
                 actions: [
-                  isSearchScreen
-                      ? IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.more_vert,
-                            color: Colors.white,
-                          ),
-                        )
-                      : const SizedBox(),
+                  IconButton(
+                    onPressed: () => {
+                      showModalBottomSheet(
+                        context: context,
+                        barrierColor: Colors.black.withAlpha(50),
+                        backgroundColor: Colors.transparent,
+                        builder: (context) => WorkoutSettingsBottomShettScreen(
+                          workoutId: workoutId,
+                          isUserOwner: state.workout.isUserOwner,
+                          isSearchScreen: isSearchScreen,
+                        ),
+                      ),
+                    },
+                    icon: const Icon(
+                      Icons.more_vert,
+                      color: Colors.white,
+                    ),
+                  ),
                 ],
                 flexibleSpace: FlexibleSpaceBar(
                   collapseMode: CollapseMode.none,
-                  background: Image(
-                    image: AssetImage(state.workout.imageUrl),
-                    fit: BoxFit.cover,
-                  ),
+                  background: state.workout.isUserOwner
+                      ? Container(
+                          color: Colors.pink.withBlue(140),
+                        )
+                      : Image(
+                          image: NetworkImage(state.workout.imageUrl),
+                          fit: BoxFit.cover,
+                        ),
                   title: Text(state.workout.name),
                 ),
               ),
@@ -73,9 +87,11 @@ class WorkoutDetailsContent extends StatelessWidget {
                     height: 5,
                     color: const Color.fromARGB(255, 209, 209, 209),
                   ),
-                  _createDescription(context, state.workout),
+                  state.workout.isUserOwner
+                      ? const SizedBox()
+                      : _createDescription(context, state.workout),
                   _createExercisesListHeader(context, state.workout),
-                  _createExercisesList(context, state.workout),
+                  _createExercisesList(context, state),
                 ],
               ),
             ],
@@ -117,11 +133,11 @@ class WorkoutDetailsContent extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(
             left: 20,
-            top: 5,
+            top: 10,
             bottom: 5,
           ),
           child: Text(
-            "${workout.minutesWorkoutTime} MIN. · ${workout.exercises.length} EXERCISES",
+            /*"${workout.minutesWorkoutTime} MIN. ·*/ " | ${workout.exercises.length} EXERCISES",
             style: const TextStyle(
               fontSize: 15.5,
               fontWeight: FontWeight.w600,
@@ -133,14 +149,18 @@ class WorkoutDetailsContent extends StatelessWidget {
     );
   }
 
-  Widget _createExercisesList(context, Workout workout) {
+  Widget _createExercisesList(context, WorkoutDetailsLoaded state) {
+    final exercises = (state.workout.exercises.values).toList();
     return Column(
       children: [
-        for (var i = 0; i < workout.exercises.length; i++)
+        for (var i = 0; i < state.workout.exercises.length; i++)
           Column(
             children: [
-              ExerciseCardTile(exerciseCard: workout.exercises[i]),
-              i < workout.exercises.length - 1
+              ExerciseCardTile(
+                exerciseCard: exercises[i],
+                exerciseGifUrl: state.exercisesGifUrl[i],
+              ),
+              i < state.workout.exercises.length - 1
                   ? const Divider(
                       indent: 10,
                       endIndent: 10,

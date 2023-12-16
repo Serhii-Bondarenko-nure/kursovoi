@@ -37,15 +37,6 @@ class NextCreateWorkoutPage extends WorkoutState {
   List<Object?> get props => [];
 }
 
-class NextDeleteWorkoutPage extends WorkoutState {
-  NextDeleteWorkoutPage({required this.workoutId});
-
-  final int workoutId;
-
-  @override
-  List<Object?> get props => [workoutId];
-}
-
 class WorkoutErrorState extends WorkoutState {
   WorkoutErrorState({required this.exeption});
   final Object? exeption;

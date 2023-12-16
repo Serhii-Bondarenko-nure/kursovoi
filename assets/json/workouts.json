@@ -5,49 +5,40 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/Pw-fnqwK-a059v",
-        "id": "0001",
-        "name": "3/4 sit-up",
-        "repetitions": 11,
-        "sets": 2,
+        "gifUrl": "https://v2.exercisedb.io/image/OWdYF-csgNQ1Zl",
+        "id": "1201",
+        "name": "dumbbell burpee",
+        "repetitions": 10,
+        "sets": 3,
+        "target": "cardiovascular system"
+      },
+      "id1": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/DkpazawXRNgEH0",
+        "id": "3698",
+        "name": "inchworm v. 2",
+        "repetitions": 10,
+        "sets": 3,
         "target": "abs"
       },
-      {
+      "id2": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/V1CjBRMIFGrmby",
-        "id": "0174",
-        "name": "cable judo flip",
-        "repetitions": 8,
-        "sets": 2,
-        "target": "abs"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/SxgouHcwmNPade",
-        "id": "1380",
-        "name": "dumbbell seated one leg calf raise - hammer grip",
-        "repetitions": 8,
-        "sets": 2,
-        "target": "calves"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/hrwgUfBESmw4EH",
-        "id": "0235",
-        "name": "cable standing shoulder external rotation",
+        "gifUrl": "https://v2.exercisedb.io/image/PALsPrsXatfsG1",
+        "id": "0398",
+        "name": "dumbbell seated one arm kickback",
         "repetitions": 12,
         "sets": 2,
-        "target": "delts"
+        "target": "triceps"
       }
-    ],
+    },
     "id": 0,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 9,
+    "minutesWorkoutTime": 13,
     "name": "Workout0",
     "types": [
       "Losing weight"
@@ -59,40 +50,49 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/SMc17PM8izeBTP",
-        "id": "0097",
-        "name": "barbell side split squat v. 2",
+        "gifUrl": "https://v2.exercisedb.io/image/O9JisVdfha3FCK",
+        "id": "0652",
+        "name": "pull-up",
         "repetitions": 11,
-        "sets": 3,
-        "target": "quads"
+        "sets": 2,
+        "target": "lats"
       },
-      {
+      "id1": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/J4sppU0HDusU1M",
-        "id": "1276",
-        "name": "dumbbell decline one arm fly",
-        "repetitions": 10,
-        "sets": 3,
-        "target": "pectorals"
+        "gifUrl": "https://v2.exercisedb.io/image/hVkywgkfYqcWui",
+        "id": "3290",
+        "name": "weighted one hand pull up",
+        "repetitions": 12,
+        "sets": 2,
+        "target": "lats"
       },
-      {
+      "id2": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/VmhpewLDcapyCH",
-        "id": "1616",
-        "name": "lever reverse grip preacher curl",
+        "gifUrl": "https://v2.exercisedb.io/image/xW4gwxizr0wB-y",
+        "id": "3697",
+        "name": "cable kneeling rear delt row (with rope) (male)",
         "repetitions": 12,
         "sets": 3,
-        "target": "biceps"
+        "target": "delts"
+      },
+      "id3": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/DMqke45ZwCZu6v",
+        "id": "3760",
+        "name": "lever seated crunch v. 2",
+        "repetitions": 12,
+        "sets": 3,
+        "target": "abs"
       }
-    ],
+    },
     "id": 1,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 13,
+    "minutesWorkoutTime": 20,
     "name": "Workout1",
     "types": [
       "Losing weight"
@@ -104,37 +104,55 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/SvqKE7rut3mjy5",
-        "id": "0179",
-        "name": "cable low fly",
-        "repetitions": 9,
+        "gifUrl": "https://v2.exercisedb.io/image/njyGtz-KU3CUhO",
+        "id": "0111",
+        "name": "barbell standing rocking leg calf raise",
+        "repetitions": 10,
         "sets": 2,
+        "target": "calves"
+      },
+      "id1": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/9ZS3lP6v1JMtWH",
+        "id": "0403",
+        "name": "dumbbell seated revers grip concentration curl",
+        "repetitions": 11,
+        "sets": 3,
+        "target": "biceps"
+      },
+      "id2": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/DOeT3pYeFAbM-O",
+        "id": "1376",
+        "name": "cable standing one leg calf raise",
+        "repetitions": 9,
+        "sets": 3,
+        "target": "calves"
+      },
+      "id3": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/aAqgbNryJ7u6il",
+        "id": "1260",
+        "name": "cable decline one arm press",
+        "repetitions": 10,
+        "sets": 3,
         "target": "pectorals"
       },
-      {
+      "id4": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/pAIXLUOuUDGLCb",
-        "id": "0551",
-        "name": "kettlebell turkish get up (squat style)",
-        "repetitions": 12,
-        "sets": 3,
-        "target": "glutes"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/HAgEsP7kwj9Bg5",
-        "id": "0378",
-        "name": "dumbbell rear fly",
-        "repetitions": 11,
+        "gifUrl": "https://v2.exercisedb.io/image/qRE5eNuSCcl157",
+        "id": "1297",
+        "name": "isometric chest squeeze",
+        "repetitions": 10,
         "sets": 2,
-        "target": "delts"
+        "target": "pectorals"
       }
-    ],
+    },
     "id": 2,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
     "minutesWorkoutTime": 9,
@@ -149,55 +167,46 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/utd5ue5YqbH8vj",
-        "id": "0767",
-        "name": "smith shrug",
-        "repetitions": 12,
-        "sets": 2,
-        "target": "traps"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/cIvJKen9qRBc8Z",
-        "id": "0247",
-        "name": "cable wrist curl",
+        "gifUrl": "https://v2.exercisedb.io/image/3UOCY3Jt1NWCBj",
+        "id": "1770",
+        "name": "biceps leg concentration curl",
         "repetitions": 8,
-        "sets": 2,
-        "target": "forearms"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/fMFYvyJe78WssC",
-        "id": "0403",
-        "name": "dumbbell seated revers grip concentration curl",
-        "repetitions": 12,
         "sets": 3,
         "target": "biceps"
       },
-      {
+      "id1": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/8d-rotnsJCzWCA",
-        "id": "0126",
-        "name": "barbell wrist curl",
+        "gifUrl": "https://v2.exercisedb.io/image/LasMbfIedqXSBd",
+        "id": "1635",
+        "name": "cable one arm reverse preacher curl",
         "repetitions": 12,
-        "sets": 3,
-        "target": "forearms"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/auAyflaEERxCGx",
-        "id": "0741",
-        "name": "sled closer hack squat",
-        "repetitions": 8,
         "sets": 2,
-        "target": "glutes"
+        "target": "biceps"
+      },
+      "id2": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/DE6XZ5k8sSAz99",
+        "id": "0102",
+        "name": "barbell squat (on knees)",
+        "repetitions": 11,
+        "sets": 3,
+        "target": "quads"
+      },
+      "id3": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/8vSZhI4w4BCR6N",
+        "id": "1647",
+        "name": "dumbbell alternate preacher curl",
+        "repetitions": 12,
+        "sets": 2,
+        "target": "biceps"
       }
-    ],
+    },
     "id": 3,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
     "minutesWorkoutTime": 20,
@@ -212,49 +221,49 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/qeGiJALjiPGWjC",
-        "id": "0168",
-        "name": "cable hip adduction",
+        "gifUrl": "https://v2.exercisedb.io/image/MyoYt7rtH-3hbK",
+        "id": "1311",
+        "name": "wide hand push up",
         "repetitions": 10,
         "sets": 3,
-        "target": "adductors"
+        "target": "pectorals"
       },
-      {
+      "id1": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/TiZPA2N36Hla7R",
-        "id": "1352",
-        "name": "lower back curl",
+        "gifUrl": "https://v2.exercisedb.io/image/qoFxUNigfpeFc0",
+        "id": "0752",
+        "name": "smith deadlift",
         "repetitions": 11,
         "sets": 2,
-        "target": "spine"
+        "target": "glutes"
       },
-      {
+      "id2": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/1ldXYep7CNZB7N",
-        "id": "1366",
-        "name": "upward facing dog",
-        "repetitions": 11,
-        "sets": 2,
-        "target": "spine"
+        "gifUrl": "https://v2.exercisedb.io/image/hIdi8Hx-7duZKh",
+        "id": "1320",
+        "name": "cable rope crossover seated row",
+        "repetitions": 9,
+        "sets": 3,
+        "target": "upper back"
       },
-      {
+      "id3": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/-ZbY0NENzJs9Su",
-        "id": "3302",
-        "name": "handstand",
+        "gifUrl": "https://v2.exercisedb.io/image/u2bFvhrKXITEe7",
+        "id": "0241",
+        "name": "cable triceps pushdown (v-bar)",
         "repetitions": 10,
-        "sets": 2,
+        "sets": 3,
         "target": "triceps"
       }
-    ],
+    },
     "id": 4,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 13,
+    "minutesWorkoutTime": 7,
     "name": "Workout4",
     "types": [
       "Losing weight"
@@ -266,40 +275,58 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/SjVU0iQMnMpUJP",
-        "id": "3318",
-        "name": "swing 360",
+        "gifUrl": "https://v2.exercisedb.io/image/VIRPWO4IILxt5u",
+        "id": "1639",
+        "name": "cable rope hammer preacher curl",
         "repetitions": 10,
-        "sets": 2,
-        "target": "cardiovascular system"
+        "sets": 3,
+        "target": "biceps"
       },
-      {
+      "id1": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/0051gL1nV-DDX2",
-        "id": "0306",
-        "name": "dumbbell decline triceps extension",
+        "gifUrl": "https://v2.exercisedb.io/image/qiSXBAxfkwFtSO",
+        "id": "0210",
+        "name": "cable reverse wrist curl",
+        "repetitions": 10,
+        "sets": 3,
+        "target": "forearms"
+      },
+      "id2": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/DXCOTsDLG2y3zl",
+        "id": "0338",
+        "name": "dumbbell lying elbow press",
         "repetitions": 8,
         "sets": 2,
         "target": "triceps"
       },
-      {
+      "id3": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/KPuAJwcKhPYqbM",
-        "id": "0488",
-        "name": "hyperextension (on bench)",
-        "repetitions": 8,
+        "gifUrl": "https://v2.exercisedb.io/image/IaRRd4JYF4MsXw",
+        "id": "0521",
+        "name": "kettlebell alternating renegade row",
+        "repetitions": 9,
+        "sets": 3,
+        "target": "upper back"
+      },
+      "id4": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/6zQ2D6kOxOcMI4",
+        "id": "0095",
+        "name": "barbell shrug",
+        "repetitions": 12,
         "sets": 2,
-        "target": "spine"
+        "target": "traps"
       }
-    ],
+    },
     "id": 5,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 16,
+    "minutesWorkoutTime": 8,
     "name": "Workout5",
     "types": [
       "Losing weight"
@@ -311,49 +338,58 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/rq83ENRIAAMHu1",
-        "id": "3236",
-        "name": "resistance band hip thrusts on knees (female)",
-        "repetitions": 10,
-        "sets": 2,
-        "target": "glutes"
+        "gifUrl": "https://v2.exercisedb.io/image/CavRcSMpKUXtle",
+        "id": "2300",
+        "name": "inverted row bent knees",
+        "repetitions": 8,
+        "sets": 3,
+        "target": "upper back"
       },
-      {
+      "id1": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/7Xm22QuEMUOovW",
-        "id": "0433",
-        "name": "dumbbell straight arm pullover",
-        "repetitions": 12,
-        "sets": 2,
-        "target": "pectorals"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/5m0IweJor7pCHw",
-        "id": "0195",
-        "name": "cable preacher curl",
+        "gifUrl": "https://v2.exercisedb.io/image/hIdi8Hx-7duZKh",
+        "id": "1320",
+        "name": "cable rope crossover seated row",
         "repetitions": 10,
-        "sets": 2,
+        "sets": 3,
+        "target": "upper back"
+      },
+      "id2": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/lAJj1ud7uiAZjA",
+        "id": "0193",
+        "name": "cable one arm straight back high row (kneeling)",
+        "repetitions": 9,
+        "sets": 3,
+        "target": "upper back"
+      },
+      "id3": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/Lyur0KtENihtXJ",
+        "id": "1327",
+        "name": "close grip chin-up",
+        "repetitions": 11,
+        "sets": 3,
+        "target": "lats"
+      },
+      "id4": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/BUs2p-tSQae08X",
+        "id": "2293",
+        "name": "dumbbell standing zottman preacher curl",
+        "repetitions": 10,
+        "sets": 3,
         "target": "biceps"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/tAn755rt9QWQpw",
-        "id": "1748",
-        "name": "ez bar lying close grip triceps extension behind head",
-        "repetitions": 12,
-        "sets": 2,
-        "target": "triceps"
       }
-    ],
+    },
     "id": 6,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 23,
+    "minutesWorkoutTime": 21,
     "name": "Workout6",
     "types": [
       "Losing weight"
@@ -365,40 +401,49 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/q02qd4CZ0nY5Ws",
-        "id": "0343",
-        "name": "dumbbell lying one arm press",
-        "repetitions": 11,
-        "sets": 2,
-        "target": "pectorals"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/OS22tvldoXLD8e",
-        "id": "2407",
-        "name": "barbell biceps curl (with arm blaster)",
+        "gifUrl": "https://v2.exercisedb.io/image/SnLifYMl97JCEp",
+        "id": "1636",
+        "name": "cable overhead curl",
         "repetitions": 10,
         "sets": 3,
         "target": "biceps"
       },
-      {
+      "id1": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/OXWNRekZeq1kYM",
-        "id": "0130",
-        "name": "bench hip extension",
-        "repetitions": 9,
-        "sets": 3,
+        "gifUrl": "https://v2.exercisedb.io/image/BCnvI0lAmkf5qY",
+        "id": "3759",
+        "name": "lever seated good morning",
+        "repetitions": 10,
+        "sets": 2,
         "target": "glutes"
+      },
+      "id2": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/96wkBVVTD2ef-U",
+        "id": "3292",
+        "name": "elevator",
+        "repetitions": 11,
+        "sets": 2,
+        "target": "upper back"
+      },
+      "id3": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/HEly5YhL4Jae-N",
+        "id": "3655",
+        "name": "walking high knees lunge",
+        "repetitions": 10,
+        "sets": 2,
+        "target": "cardiovascular system"
       }
-    ],
+    },
     "id": 7,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 8,
+    "minutesWorkoutTime": 10,
     "name": "Workout7",
     "types": [
       "Losing weight"
@@ -410,58 +455,67 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/e0u8LFWpCTj79H",
-        "id": "0214",
-        "name": "cable seated one arm alternate row",
+        "gifUrl": "https://v2.exercisedb.io/image/uSHSWWk4bvhqK2",
+        "id": "2400",
+        "name": "inverse leg curl (on pull-up cable machine)",
         "repetitions": 11,
+        "sets": 2,
+        "target": "hamstrings"
+      },
+      "id1": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/pH688eZDkSNUry",
+        "id": "3645",
+        "name": "single leg bridge with outstretched leg",
+        "repetitions": 8,
         "sets": 3,
-        "target": "upper back"
+        "target": "glutes"
       },
-      {
+      "id2": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/82UsuFLu0ZSjkL",
-        "id": "1763",
-        "name": "shoulder grip pull-up",
-        "repetitions": 12,
-        "sets": 2,
-        "target": "lats"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/TiZPA2N36Hla7R",
-        "id": "1352",
-        "name": "lower back curl",
-        "repetitions": 10,
-        "sets": 2,
-        "target": "spine"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/12rNKZuVJvrZOM",
-        "id": "1279",
-        "name": "dumbbell incline one arm fly",
+        "gifUrl": "https://v2.exercisedb.io/image/aAqgbNryJ7u6il",
+        "id": "1260",
+        "name": "cable decline one arm press",
         "repetitions": 9,
-        "sets": 3,
+        "sets": 2,
         "target": "pectorals"
       },
-      {
+      "id3": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/PR8fv8H5hRF5qq",
-        "id": "0388",
-        "name": "dumbbell seated alternate press",
-        "repetitions": 12,
-        "sets": 3,
-        "target": "delts"
+        "gifUrl": "https://v2.exercisedb.io/image/PLzaiSQ6J3YAC-",
+        "id": "0761",
+        "name": "smith narrow row",
+        "repetitions": 8,
+        "sets": 2,
+        "target": "upper back"
+      },
+      "id4": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/Q7Qyms8qFmfX7Q",
+        "id": "2298",
+        "name": "inverted row on bench",
+        "repetitions": 8,
+        "sets": 2,
+        "target": "upper back"
+      },
+      "id5": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/swDdTcuPgcATXn",
+        "id": "1686",
+        "name": "squat to overhead reach with twist",
+        "repetitions": 10,
+        "sets": 2,
+        "target": "quads"
       }
-    ],
+    },
     "id": 8,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 22,
+    "minutesWorkoutTime": 12,
     "name": "Workout8",
     "types": [
       "Relief"
@@ -473,58 +527,58 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/Pw-fnqwK-a059v",
-        "id": "0001",
-        "name": "3/4 sit-up",
+        "gifUrl": "https://v2.exercisedb.io/image/i8nyZjYFlGsj6P",
+        "id": "1302",
+        "name": "medicine ball chest pass",
         "repetitions": 9,
-        "sets": 3,
-        "target": "abs"
+        "sets": 2,
+        "target": "pectorals"
       },
-      {
+      "id1": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/7ByuM8oVRsRFMT",
-        "id": "0680",
-        "name": "rope climb",
+        "gifUrl": "https://v2.exercisedb.io/image/NMQL4jDdXG9c8H",
+        "id": "0997",
+        "name": "band shoulder press",
         "repetitions": 10,
         "sets": 2,
-        "target": "upper back"
+        "target": "delts"
       },
-      {
+      "id2": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/3QUwPHiwBa4wvM",
-        "id": "2571",
-        "name": "rocking frog stretch",
+        "gifUrl": "https://v2.exercisedb.io/image/LBJQwtJPZSoDwG",
+        "id": "0670",
+        "name": "rear pull-up",
         "repetitions": 11,
         "sets": 3,
-        "target": "glutes"
+        "target": "lats"
       },
-      {
+      "id3": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/dGucSGTASzAlYc",
-        "id": "1386",
-        "name": "one leg donkey calf raise",
-        "repetitions": 10,
+        "gifUrl": "https://v2.exercisedb.io/image/nmprhwaUdF2gbR",
+        "id": "1766",
+        "name": "self assisted inverse leg curl",
+        "repetitions": 8,
         "sets": 3,
-        "target": "calves"
+        "target": "hamstrings"
       },
-      {
+      "id4": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/J-dy8z2S3kP1Th",
-        "id": "0017",
-        "name": "assisted pull-up",
+        "gifUrl": "https://v2.exercisedb.io/image/ugmF5Lwjac9KEZ",
+        "id": "2328",
+        "name": "narrow push-up on exercise ball",
         "repetitions": 9,
         "sets": 3,
-        "target": "lats"
+        "target": "triceps"
       }
-    ],
+    },
     "id": 9,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 6,
+    "minutesWorkoutTime": 18,
     "name": "Workout9",
     "types": [
       "Relief"
@@ -536,49 +590,49 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/cYkhO0ZPKFiMLA",
-        "id": "1642",
-        "name": "cable seated one arm concentration curl",
-        "repetitions": 8,
-        "sets": 2,
-        "target": "biceps"
+        "gifUrl": "https://v2.exercisedb.io/image/DHIS8eBMwepL7t",
+        "id": "0406",
+        "name": "dumbbell shrug",
+        "repetitions": 12,
+        "sets": 3,
+        "target": "traps"
       },
-      {
+      "id1": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/XMO7HuO4o-bu3G",
-        "id": "0651",
-        "name": "pull up (neutral grip)",
-        "repetitions": 9,
+        "gifUrl": "https://v2.exercisedb.io/image/tr53OdR24wAkl-",
+        "id": "0245",
+        "name": "cable underhand pulldown",
+        "repetitions": 8,
         "sets": 3,
         "target": "lats"
       },
-      {
+      "id2": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/56fieCq-0vc6S7",
-        "id": "0086",
-        "name": "barbell seated behind head military press",
+        "gifUrl": "https://v2.exercisedb.io/image/vDDUVu4PcfNFlK",
+        "id": "3562",
+        "name": "barbell glute bridge two legs on bench (male)",
         "repetitions": 8,
         "sets": 2,
-        "target": "delts"
+        "target": "glutes"
       },
-      {
+      "id3": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/O-78l2KCbU6zAk",
-        "id": "1256",
-        "name": "barbell reverse grip decline bench press",
-        "repetitions": 9,
-        "sets": 3,
+        "gifUrl": "https://v2.exercisedb.io/image/o8DJmq7uyj2VF9",
+        "id": "3758",
+        "name": "lever standing chest press",
+        "repetitions": 12,
+        "sets": 2,
         "target": "pectorals"
       }
-    ],
+    },
     "id": 10,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 20,
+    "minutesWorkoutTime": 11,
     "name": "Workout10",
     "types": [
       "Relief"
@@ -590,49 +644,49 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/Bqwmtx09AiK0hs",
-        "id": "2705",
-        "name": "dumbbell lying pronation on floor",
+        "gifUrl": "https://v2.exercisedb.io/image/ke1-JHM0mlB9WT",
+        "id": "1719",
+        "name": "barbell incline close grip bench press",
+        "repetitions": 11,
+        "sets": 3,
+        "target": "triceps"
+      },
+      "id1": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/5MJYVPK4vLcb-a",
+        "id": "0574",
+        "name": "lever bent over row",
         "repetitions": 11,
         "sets": 2,
-        "target": "forearms"
+        "target": "upper back"
       },
-      {
+      "id2": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/6e8WnnQphJmo34",
-        "id": "0624",
-        "name": "march sit (wall)",
+        "gifUrl": "https://v2.exercisedb.io/image/MwM6NcQLR9yZL-",
+        "id": "0377",
+        "name": "dumbbell rear delt row_shoulder",
         "repetitions": 11,
         "sets": 2,
-        "target": "glutes"
+        "target": "delts"
       },
-      {
+      "id3": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/KjeU8C7fgWIEh7",
-        "id": "0279",
-        "name": "decline push-up",
+        "gifUrl": "https://v2.exercisedb.io/image/nboPUObWKEVyZV",
+        "id": "0490",
+        "name": "incline close-grip push-up",
         "repetitions": 9,
         "sets": 3,
-        "target": "pectorals"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/z6SllszQDN3H5E",
-        "id": "0429",
-        "name": "dumbbell standing reverse curl",
-        "repetitions": 10,
-        "sets": 2,
-        "target": "biceps"
+        "target": "triceps"
       }
-    ],
+    },
     "id": 11,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 8,
+    "minutesWorkoutTime": 17,
     "name": "Workout11",
     "types": [
       "Relief"
@@ -644,49 +698,49 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/goaJh1xRmq8wAm",
-        "id": "0537",
-        "name": "kettlebell one arm clean and jerk",
-        "repetitions": 9,
+        "gifUrl": "https://v2.exercisedb.io/image/vTXkoIKN8iSMmR",
+        "id": "1641",
+        "name": "cable seated curl",
+        "repetitions": 10,
         "sets": 2,
-        "target": "delts"
+        "target": "biceps"
       },
-      {
+      "id1": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/cLRCFV0k4YicQV",
-        "id": "1381",
-        "name": "dumbbell seated one leg calf raise - palm up",
-        "repetitions": 12,
+        "gifUrl": "https://v2.exercisedb.io/image/JrXStpHNMrV7RF",
+        "id": "2705",
+        "name": "dumbbell lying pronation on floor",
+        "repetitions": 9,
         "sets": 3,
-        "target": "calves"
+        "target": "forearms"
       },
-      {
+      "id2": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/fAAHPRo9Lc0fVX",
-        "id": "0803",
-        "name": "superman push-up",
-        "repetitions": 11,
-        "sets": 3,
-        "target": "pectorals"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/iWx5Ig0m-Rj58d",
-        "id": "1651",
-        "name": "dumbbell bicep curl lunge with bowling motion",
-        "repetitions": 12,
+        "gifUrl": "https://v2.exercisedb.io/image/ik4VRqNNriwHdK",
+        "id": "0320",
+        "name": "dumbbell incline hammer curl",
+        "repetitions": 10,
         "sets": 3,
         "target": "biceps"
+      },
+      "id3": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/SkfwixhqIK5wh4",
+        "id": "1623",
+        "name": "dumbbell palms in incline bench press",
+        "repetitions": 9,
+        "sets": 2,
+        "target": "triceps"
       }
-    ],
+    },
     "id": 12,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 6,
+    "minutesWorkoutTime": 10,
     "name": "Workout12",
     "types": [
       "Mass and strength"
@@ -698,40 +752,49 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/HriaXZpaVM8sw5",
-        "id": "0070",
-        "name": "barbell preacher curl",
-        "repetitions": 8,
-        "sets": 3,
-        "target": "biceps"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/KgwDyHFO5Umd6D",
-        "id": "0184",
-        "name": "cable lying extension pullover (with rope attachment)",
+        "gifUrl": "https://v2.exercisedb.io/image/Ewu-Z72rB-FNgS",
+        "id": "2432",
+        "name": "ez-bar close-grip bench press",
         "repetitions": 9,
         "sets": 2,
-        "target": "lats"
+        "target": "triceps"
       },
-      {
+      "id1": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/eewHgPtJoCpIHP",
-        "id": "3542",
-        "name": "dumbbell incline t-raise",
+        "gifUrl": "https://v2.exercisedb.io/image/rAtHNiqWOruV1x",
+        "id": "0160",
+        "name": "cable floor seated wide-grip row",
+        "repetitions": 12,
+        "sets": 2,
+        "target": "upper back"
+      },
+      "id2": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/SpKxbsNyiG8ntL",
+        "id": "1008",
+        "name": "band step-up",
         "repetitions": 10,
         "sets": 3,
-        "target": "delts"
+        "target": "glutes"
+      },
+      "id3": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/QC-0xUbs2aiS0A",
+        "id": "0344",
+        "name": "dumbbell lying one arm pronated triceps extension",
+        "repetitions": 9,
+        "sets": 3,
+        "target": "triceps"
       }
-    ],
+    },
     "id": 13,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 18,
+    "minutesWorkoutTime": 7,
     "name": "Workout13",
     "types": [
       "Mass and strength"
@@ -743,40 +806,58 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/IDKsjD6VvRQuK3",
-        "id": "1417",
-        "name": "exercise ball one legged diagonal kick hamstring curl",
-        "repetitions": 9,
+        "gifUrl": "https://v2.exercisedb.io/image/hwONhCX03e1Baa",
+        "id": "2311",
+        "name": "walking on stepmill",
+        "repetitions": 8,
         "sets": 2,
-        "target": "glutes"
+        "target": "cardiovascular system"
       },
-      {
+      "id1": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/BWJGz0hXE43Zje",
-        "id": "0740",
-        "name": "sled 45в° leg wide press",
-        "repetitions": 9,
+        "gifUrl": "https://v2.exercisedb.io/image/0EDhGjXF7H6U-c",
+        "id": "1467",
+        "name": "push-up on lower arms",
+        "repetitions": 8,
+        "sets": 2,
+        "target": "triceps"
+      },
+      "id2": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/DOmUXD2cMOpT3a",
+        "id": "1663",
+        "name": "dumbbell one arm hammer preacher curl",
+        "repetitions": 12,
         "sets": 3,
-        "target": "glutes"
+        "target": "biceps"
       },
-      {
+      "id3": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/Bqwmtx09AiK0hs",
-        "id": "2705",
-        "name": "dumbbell lying pronation on floor",
+        "gifUrl": "https://v2.exercisedb.io/image/VbFBy6WMyeXfok",
+        "id": "0155",
+        "name": "cable cross-over variation",
+        "repetitions": 8,
+        "sets": 2,
+        "target": "pectorals"
+      },
+      "id4": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/kQFK6FXE00Hll1",
+        "id": "0211",
+        "name": "cable russian twists (on stability ball)",
         "repetitions": 12,
         "sets": 2,
-        "target": "forearms"
+        "target": "abs"
       }
-    ],
+    },
     "id": 14,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 7,
+    "minutesWorkoutTime": 13,
     "name": "Workout14",
     "types": [
       "Mass and strength"
@@ -788,49 +869,58 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/3bXHt00GVjep89",
-        "id": "0405",
-        "name": "dumbbell seated shoulder press",
-        "repetitions": 11,
+        "gifUrl": "https://v2.exercisedb.io/image/ZAwFOrrcoUcCA8",
+        "id": "0373",
+        "name": "dumbbell pronate-grip triceps extension",
+        "repetitions": 9,
+        "sets": 3,
+        "target": "triceps"
+      },
+      "id1": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/4nL78fDFJqkGYo",
+        "id": "0292",
+        "name": "dumbbell one arm bent-over row",
+        "repetitions": 10,
+        "sets": 2,
+        "target": "upper back"
+      },
+      "id2": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/IXUokXVoiH8aCX",
+        "id": "2397",
+        "name": "dumbbell scott press",
+        "repetitions": 10,
         "sets": 2,
         "target": "delts"
       },
-      {
+      "id3": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/V1HHky2zyBG8AE",
-        "id": "3662",
-        "name": "pike-to-cobra push-up",
-        "repetitions": 11,
+        "gifUrl": "https://v2.exercisedb.io/image/0umY6VNOHUYTgF",
+        "id": "0763",
+        "name": "smith reverse calf raises",
+        "repetitions": 8,
         "sets": 3,
-        "target": "glutes"
+        "target": "calves"
       },
-      {
+      "id4": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/HYb2Qcvn2jRzZB",
-        "id": "3666",
-        "name": "walking on incline treadmill",
+        "gifUrl": "https://v2.exercisedb.io/image/QX8CgNt6Zss6es",
+        "id": "3563",
+        "name": "cable one arm pulldown",
         "repetitions": 9,
         "sets": 2,
-        "target": "cardiovascular system"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/n3IAUo6e40qMgo",
-        "id": "1512",
-        "name": "all fours squad stretch",
-        "repetitions": 10,
-        "sets": 3,
-        "target": "quads"
+        "target": "lats"
       }
-    ],
+    },
     "id": 15,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 7,
+    "minutesWorkoutTime": 12,
     "name": "Workout15",
     "types": [
       "Universal"
@@ -842,40 +932,40 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/5wnOt8LWMoQLW9",
-        "id": "1391",
-        "name": "sled calf press on leg press",
-        "repetitions": 8,
-        "sets": 3,
-        "target": "calves"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/UlX846hGKgZsTv",
-        "id": "0381",
-        "name": "dumbbell rear lunge",
+        "gifUrl": "https://v2.exercisedb.io/image/HDqGP5SDO58Kk5",
+        "id": "0340",
+        "name": "dumbbell lying hammer press",
         "repetitions": 9,
         "sets": 3,
-        "target": "glutes"
+        "target": "pectorals"
       },
-      {
+      "id1": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/C1WAEEJHRzsQmL",
-        "id": "1657",
-        "name": "dumbbell cross body hammer curl v. 2",
+        "gifUrl": "https://v2.exercisedb.io/image/wn5AAKNWmgMVzE",
+        "id": "0112",
+        "name": "barbell standing twist",
         "repetitions": 12,
-        "sets": 2,
-        "target": "biceps"
+        "sets": 3,
+        "target": "abs"
+      },
+      "id2": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/FExB03kYTIMHOI",
+        "id": "1730",
+        "name": "dumbbell seated bent over alternate kickback",
+        "repetitions": 11,
+        "sets": 3,
+        "target": "triceps"
       }
-    ],
+    },
     "id": 16,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 9,
+    "minutesWorkoutTime": 8,
     "name": "Workout16",
     "types": [
       "Universal"
@@ -887,49 +977,58 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/3U9K4Zzq3Bv6Z3",
-        "id": "0320",
-        "name": "dumbbell incline hammer curl",
+        "gifUrl": "https://v2.exercisedb.io/image/DRJ3zoQPfaqomr",
+        "id": "0311",
+        "name": "dumbbell full can lateral raise",
         "repetitions": 10,
-        "sets": 3,
-        "target": "biceps"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/Db9O5k3UTPIOHL",
-        "id": "0699",
-        "name": "shoulder tap push-up",
-        "repetitions": 9,
         "sets": 2,
-        "target": "pectorals"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/tD8D7n5qV5f6EB",
-        "id": "0574",
-        "name": "lever bent over row",
-        "repetitions": 9,
-        "sets": 2,
-        "target": "upper back"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/JR1oSeNYu1C5hS",
-        "id": "2292",
-        "name": "dumbbell rear delt raise",
-        "repetitions": 10,
-        "sets": 3,
         "target": "delts"
+      },
+      "id1": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/aJ7llZ2YcUXwvQ",
+        "id": "3220",
+        "name": "astride jumps (male)",
+        "repetitions": 10,
+        "sets": 3,
+        "target": "cardiovascular system"
+      },
+      "id2": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/5VQj8y6JZfhZdd",
+        "id": "0744",
+        "name": "sled lying squat",
+        "repetitions": 10,
+        "sets": 3,
+        "target": "glutes"
+      },
+      "id3": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/Dt-s4GcTzC0lWF",
+        "id": "0970",
+        "name": "band assisted pull-up",
+        "repetitions": 9,
+        "sets": 2,
+        "target": "lats"
+      },
+      "id4": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/IxTwPno2YqQjGP",
+        "id": "3117",
+        "name": "band fixed back close grip pulldown",
+        "repetitions": 9,
+        "sets": 2,
+        "target": "lats"
       }
-    ],
+    },
     "id": 17,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 24,
+    "minutesWorkoutTime": 9,
     "name": "Workout17",
     "types": [
       "Universal"
@@ -941,49 +1040,40 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/7F0Gx4sg5qOmiP",
-        "id": "0756",
-        "name": "smith hip raise",
+        "gifUrl": "https://v2.exercisedb.io/image/nfA8hhCrFeURdn",
+        "id": "0497",
+        "name": "inverted row v. 2",
         "repetitions": 9,
         "sets": 2,
-        "target": "abs"
+        "target": "upper back"
       },
-      {
+      "id1": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/Jp5Ktpa86JtJLe",
-        "id": "0652",
-        "name": "pull-up",
+        "gifUrl": "https://v2.exercisedb.io/image/PT6z8MlqcrCzic",
+        "id": "1254",
+        "name": "band bench press",
+        "repetitions": 10,
+        "sets": 2,
+        "target": "pectorals"
+      },
+      "id2": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/tQ2mnb2f7j6rpm",
+        "id": "0224",
+        "name": "cable standing back wrist curl",
         "repetitions": 9,
         "sets": 2,
-        "target": "lats"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/pYMF5pCmVqLUqa",
-        "id": "2136",
-        "name": "dumbbell cuban press v. 2",
-        "repetitions": 8,
-        "sets": 3,
-        "target": "delts"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/AkgZKHeU9PPvNa",
-        "id": "0769",
-        "name": "smith sprint lunge",
-        "repetitions": 9,
-        "sets": 3,
-        "target": "glutes"
+        "target": "forearms"
       }
-    ],
+    },
     "id": 18,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 7,
+    "minutesWorkoutTime": 16,
     "name": "Workout18",
     "types": [
       "Universal"
@@ -995,40 +1085,58 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/KJGaSmK05ncJS3",
-        "id": "0259",
-        "name": "close-grip push-up",
+        "gifUrl": "https://v2.exercisedb.io/image/0dALtM-sE1z82u",
+        "id": "3642",
+        "name": "weighted stretch lunge",
         "repetitions": 12,
         "sets": 2,
+        "target": "glutes"
+      },
+      "id1": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/-Qw9c0OrdKwDhH",
+        "id": "0450",
+        "name": "ez barbell jm bench press",
+        "repetitions": 12,
+        "sets": 3,
         "target": "triceps"
       },
-      {
+      "id2": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/scuzZDGT12YfFl",
-        "id": "0059",
-        "name": "barbell lying preacher curl",
-        "repetitions": 9,
+        "gifUrl": "https://v2.exercisedb.io/image/ELeQ7ufWisdIUl",
+        "id": "1626",
+        "name": "smith machine reverse decline close grip bench press",
+        "repetitions": 10,
         "sets": 3,
-        "target": "biceps"
+        "target": "pectorals"
       },
-      {
+      "id3": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/BqKBFrXgSum8Sw",
-        "id": "3664",
-        "name": "dumbbell side plank with rear fly",
-        "repetitions": 9,
+        "gifUrl": "https://v2.exercisedb.io/image/QZCvY5DCDSMa77",
+        "id": "3361",
+        "name": "skater hops",
+        "repetitions": 12,
         "sets": 3,
-        "target": "upper back"
+        "target": "cardiovascular system"
+      },
+      "id4": {
+        "exerciseTime": 0,
+        "gifUrl": "https://v2.exercisedb.io/image/Bods8lzwt7aDaS",
+        "id": "1434",
+        "name": "smith low bar squat",
+        "repetitions": 11,
+        "sets": 3,
+        "target": "glutes"
       }
-    ],
+    },
     "id": 19,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 17,
+    "minutesWorkoutTime": 7,
     "name": "Workout19",
     "types": [
       "Universal"
@@ -1040,58 +1148,40 @@
       "I don't know how long it will be, but it will be long enough.",
       "But I'm sure it will be satisfactory."
     ],
-    "exercises": [
-      {
+    "exercises": {
+      "id0": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/VmhpewLDcapyCH",
-        "id": "1616",
-        "name": "lever reverse grip preacher curl",
-        "repetitions": 10,
+        "gifUrl": "https://v2.exercisedb.io/image/cIjtpyMsiC1NCu",
+        "id": "0100",
+        "name": "barbell skier",
+        "repetitions": 11,
         "sets": 2,
-        "target": "biceps"
+        "target": "delts"
       },
-      {
+      "id1": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/fiKZHO4iap2ZtT",
-        "id": "3293",
-        "name": "archer pull up",
+        "gifUrl": "https://v2.exercisedb.io/image/uCYfzmyIjzJ2NU",
+        "id": "3663",
+        "name": "reverse plank with leg lift",
         "repetitions": 8,
-        "sets": 2,
-        "target": "lats"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/BRA9hfIGdzAaug",
-        "id": "0531",
-        "name": "kettlebell extended range one arm press on floor",
-        "repetitions": 12,
-        "sets": 2,
-        "target": "pectorals"
-      },
-      {
-        "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/WqN90XjoafQ1q3",
-        "id": "3699",
-        "name": "shoulder tap",
-        "repetitions": 12,
         "sets": 3,
         "target": "abs"
       },
-      {
+      "id2": {
         "exerciseTime": 0,
-        "gifUrl": "https://v2.exercisedb.io/image/3bXHt00GVjep89",
-        "id": "0405",
-        "name": "dumbbell seated shoulder press",
-        "repetitions": 9,
-        "sets": 3,
-        "target": "delts"
+        "gifUrl": "https://v2.exercisedb.io/image/AtzLT8eBJM-9mv",
+        "id": "0015",
+        "name": "assisted parallel close grip pull-up",
+        "repetitions": 11,
+        "sets": 2,
+        "target": "lats"
       }
-    ],
+    },
     "id": 20,
-    "imageUrl": "assets/icons/workouts/3.0x/pilates.png",
+    "imageUrl": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1024-512,f_auto,q_auto:best/newscms/2017_49/2252701/kettlebell.jpg",
     "isComplete": false,
     "isUserOwner": false,
-    "minutesWorkoutTime": 24,
+    "minutesWorkoutTime": 8,
     "name": "Workout20",
     "types": [
       "Universal"

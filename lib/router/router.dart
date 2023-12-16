@@ -5,9 +5,9 @@ import 'package:authorization/features/onboarding/onboarding.dart';
 import 'package:authorization/features/tab_bar/tab_bar.dart';
 import 'package:authorization/features/firebase_streem/firebase_streem_screen.dart';
 import 'package:authorization/features/workout_create/workout_create.dart';
-import 'package:authorization/features/workout_delete/workout_delete.dart';
 import 'package:authorization/features/workout_details/workout_details.dart';
 import 'package:authorization/features/workout_performing/workout_performing.dart';
+import 'package:authorization/features/workout_settings_bottmo_shett/workout_settings_bottmo_shett.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
@@ -32,12 +32,14 @@ class AppRouter extends _$AppRouter {
         //Exercises
         AutoRoute(page: ExercisesSearchRoute.page, path: '/exercise_serch'),
         AutoRoute(page: ExerciseDetailsRoute.page, path: '/exercise_details'),
-        //Workouts
+        //Workouts Pages
         AutoRoute(page: WorkoutDetailsRoute.page, path: '/workout_details'),
         AutoRoute(page: WorkoutCreateRoute.page, path: '/workout_create'),
         AutoRoute(
             page: WorkoutPerformingRoute.page, path: '/workout_performing'),
 
-        AutoRoute(page: WorkoutDeleteRoute.page, path: '/workout_delete'),
+        AutoRoute(
+            page: WorkoutSettingsBottomShettRoute.page,
+            path: '/workout_settings_bottom_shett'),
       ];
 }

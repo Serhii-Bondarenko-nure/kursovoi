@@ -1,4 +1,4 @@
-import 'package:authorization/core/services/workouts_firebase_realtime_database_service.dart';
+import 'package:authorization/core/services/workout_create_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 
@@ -17,8 +17,7 @@ class AuthService {
   }
 
   static Future<bool> registerUserInDatabase() async {
-    await GetIt.I<UserWorkoutsFirebaseRealtimeDatabaseService>()
-        .updateUserWorkoutsLastId(1000);
+    await GetIt.I<WorkoutCreateService>().updateUserWorkoutsLastId(1000);
     return true;
   }
 

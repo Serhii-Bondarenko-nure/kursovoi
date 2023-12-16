@@ -12,7 +12,7 @@ class LoadWorkoutDetailsEvent extends WorkoutDetailsEvent {
   final bool isSearchScreen;
 
   @override
-  List<Object?> get props => [workoutId];
+  List<Object?> get props => [workoutId, isSearchScreen];
 }
 
 class AddWorkoutTapped extends WorkoutDetailsEvent {
@@ -49,4 +49,23 @@ class ExerciseDetailsTapped extends WorkoutDetailsEvent {
 
   @override
   List<Object?> get props => [exerciseId];
+}
+
+class WorkoutSettingsTapped extends WorkoutDetailsEvent {
+  WorkoutSettingsTapped({
+    required this.workoutId,
+    required this.isUserOwner,
+    required this.isSearchScreen,
+  });
+
+  final int workoutId;
+  final bool isUserOwner;
+  final bool isSearchScreen;
+
+  @override
+  List<Object?> get props => [
+        workoutId,
+        isUserOwner,
+        isSearchScreen,
+      ];
 }

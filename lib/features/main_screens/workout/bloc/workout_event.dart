@@ -22,12 +22,3 @@ class WorkoutCreateTapped extends WorkoutEvent {
   @override
   List<Object?> get props => [];
 }
-
-class WorkoutDeleteTapped extends WorkoutEvent {
-  WorkoutDeleteTapped({required this.workoutId});
-
-  final int workoutId;
-
-  @override
-  List<Object?> get props => [workoutId];
-}

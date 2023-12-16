@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:authorization/core/repositories/exercises/exercises.dart';
+import 'package:authorization/core/services/workout_create_service.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -16,8 +17,11 @@ class ExercisesSearchBloc
     on<ExerciseDetailsTapped>((event, emit) {
       emit(NextExerciseDetailsPage(exerciseId: event.exerciseId));
     });
-    on<WorkoutCreateTapped>((event, emit) {
-      emit(NextWorkoutCreatePage(exercise: event.exercise));
+    on<WorkoutCreateTapped>((event, emit) async {
+      await GetIt.I<WorkoutCreateService>()
+          .createEmptyExerciseData(event.exercise);
+
+      emit(NextWorkoutCreatePage());
     });
   }
 

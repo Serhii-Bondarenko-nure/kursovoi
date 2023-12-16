@@ -28,7 +28,7 @@ class ExercisesSearchScreen extends StatelessWidget {
                 .push(ExerciseDetailsRoute(exerciseId: state.exerciseId))
                 .then((result) => exercisesSearchBloc.add(LoadExercisesList()));
           } else if (state is NextWorkoutCreatePage) {
-            // TODO: Сделать переход, какой - пока не знаю
+            AutoRouter.of(context).pop();
           } else if (state is ErrorState) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.exeption.toString())),

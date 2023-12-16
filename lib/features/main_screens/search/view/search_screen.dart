@@ -1,4 +1,4 @@
-import 'package:authorization/core/repositories/workouts/workouts.dart';
+import 'package:authorization/core/services/workouts_service.dart';
 import 'package:authorization/features/main_screens/search/bloc/search_screen_bloc/search_screen_bloc.dart';
 import 'package:authorization/features/main_screens/search/widgets/widgets.dart';
 import 'package:authorization/router/router.dart';
@@ -10,8 +10,8 @@ import 'package:get_it/get_it.dart';
 class SearchScreen extends StatelessWidget {
   SearchScreen({super.key});
 
-  final searchBloc = SearchScreenBloc(
-      workoutsRepository: GetIt.I<AbstractWorkoutsRepository>());
+  final searchBloc =
+      SearchScreenBloc(workoutsService: GetIt.I<WorkoutsService>());
 
   @override
   Widget build(BuildContext context) {

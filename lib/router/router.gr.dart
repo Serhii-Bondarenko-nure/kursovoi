@@ -82,19 +82,11 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     WorkoutCreateRoute.name: (routeData) {
+      final args = routeData.argsAs<WorkoutCreateRouteArgs>(
+          orElse: () => const WorkoutCreateRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const WorkoutCreateScreen(),
-      );
-    },
-    WorkoutDeleteRoute.name: (routeData) {
-      final args = routeData.argsAs<WorkoutDeleteRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WorkoutDeleteScreen(
-          key: args.key,
-          workoutId: args.workoutId,
-        ),
+        child: WorkoutCreateScreen(key: args.key),
       );
     },
     WorkoutDetailsRoute.name: (routeData) {
@@ -115,6 +107,18 @@ abstract class _$AppRouter extends RootStackRouter {
         child: WorkoutPerformingScreen(
           key: args.key,
           workout: args.workout,
+        ),
+      );
+    },
+    WorkoutSettingsBottomShettRoute.name: (routeData) {
+      final args = routeData.argsAs<WorkoutSettingsBottomShettRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WorkoutSettingsBottomShettScreen(
+          key: args.key,
+          workoutId: args.workoutId,
+          isUserOwner: args.isUserOwner,
+          isSearchScreen: args.isSearchScreen,
         ),
       );
     },
@@ -320,53 +324,30 @@ class VerifyEmailRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [WorkoutCreateScreen]
-class WorkoutCreateRoute extends PageRouteInfo<void> {
-  const WorkoutCreateRoute({List<PageRouteInfo>? children})
-      : super(
+class WorkoutCreateRoute extends PageRouteInfo<WorkoutCreateRouteArgs> {
+  WorkoutCreateRoute({
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
           WorkoutCreateRoute.name,
+          args: WorkoutCreateRouteArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'WorkoutCreateRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<WorkoutCreateRouteArgs> page =
+      PageInfo<WorkoutCreateRouteArgs>(name);
 }
 
-/// generated route for
-/// [WorkoutDeleteScreen]
-class WorkoutDeleteRoute extends PageRouteInfo<WorkoutDeleteRouteArgs> {
-  WorkoutDeleteRoute({
-    Key? key,
-    required int workoutId,
-    List<PageRouteInfo>? children,
-  }) : super(
-          WorkoutDeleteRoute.name,
-          args: WorkoutDeleteRouteArgs(
-            key: key,
-            workoutId: workoutId,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'WorkoutDeleteRoute';
-
-  static const PageInfo<WorkoutDeleteRouteArgs> page =
-      PageInfo<WorkoutDeleteRouteArgs>(name);
-}
-
-class WorkoutDeleteRouteArgs {
-  const WorkoutDeleteRouteArgs({
-    this.key,
-    required this.workoutId,
-  });
+class WorkoutCreateRouteArgs {
+  const WorkoutCreateRouteArgs({this.key});
 
   final Key? key;
 
-  final int workoutId;
-
   @override
   String toString() {
-    return 'WorkoutDeleteRouteArgs{key: $key, workoutId: $workoutId}';
+    return 'WorkoutCreateRouteArgs{key: $key}';
   }
 }
 
@@ -448,5 +429,54 @@ class WorkoutPerformingRouteArgs {
   @override
   String toString() {
     return 'WorkoutPerformingRouteArgs{key: $key, workout: $workout}';
+  }
+}
+
+/// generated route for
+/// [WorkoutSettingsBottomShettScreen]
+class WorkoutSettingsBottomShettRoute
+    extends PageRouteInfo<WorkoutSettingsBottomShettRouteArgs> {
+  WorkoutSettingsBottomShettRoute({
+    Key? key,
+    required int workoutId,
+    required bool isUserOwner,
+    required bool isSearchScreen,
+    List<PageRouteInfo>? children,
+  }) : super(
+          WorkoutSettingsBottomShettRoute.name,
+          args: WorkoutSettingsBottomShettRouteArgs(
+            key: key,
+            workoutId: workoutId,
+            isUserOwner: isUserOwner,
+            isSearchScreen: isSearchScreen,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'WorkoutSettingsBottomShettRoute';
+
+  static const PageInfo<WorkoutSettingsBottomShettRouteArgs> page =
+      PageInfo<WorkoutSettingsBottomShettRouteArgs>(name);
+}
+
+class WorkoutSettingsBottomShettRouteArgs {
+  const WorkoutSettingsBottomShettRouteArgs({
+    this.key,
+    required this.workoutId,
+    required this.isUserOwner,
+    required this.isSearchScreen,
+  });
+
+  final Key? key;
+
+  final int workoutId;
+
+  final bool isUserOwner;
+
+  final bool isSearchScreen;
+
+  @override
+  String toString() {
+    return 'WorkoutSettingsBottomShettRouteArgs{key: $key, workoutId: $workoutId, isUserOwner: $isUserOwner, isSearchScreen: $isSearchScreen}';
   }
 }

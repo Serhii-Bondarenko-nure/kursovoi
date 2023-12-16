@@ -1,4 +1,4 @@
-import 'package:authorization/core/repositories/workouts/workouts.dart';
+import 'package:authorization/core/repositories/workouts/models/models.dart';
 import 'package:authorization/features/workout_details/bloc/workout_details_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,9 +8,11 @@ class ExerciseCardTile extends StatelessWidget {
   ExerciseCardTile({
     super.key,
     required this.exerciseCard,
+    required this.exerciseGifUrl,
   });
 
   final ExerciseCard exerciseCard;
+  final String exerciseGifUrl;
   final GifController gifCntroller = GifController(autoPlay: false);
 
   @override
@@ -19,7 +21,7 @@ class ExerciseCardTile extends StatelessWidget {
 
     return ListTile(
       leading: GifView.network(
-        exerciseCard.gifUrl,
+        exerciseGifUrl,
         controller: gifCntroller,
       ),
       title: Text(

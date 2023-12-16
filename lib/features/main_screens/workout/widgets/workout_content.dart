@@ -1,5 +1,6 @@
 import 'package:authorization/features/common_widgets/workout_card.dart';
 import 'package:authorization/features/main_screens/workout/bloc/workout_bloc.dart';
+import 'package:authorization/features/workout_settings_bottmo_shett/view/workout_settings_bottmo_shett_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,8 +42,15 @@ class WorkoutContent extends StatelessWidget {
                     ));
                   },
                   onLongPress: () {
-                    workoutBloc.add(WorkoutDeleteTapped(workoutId: workout.id));
-                    workoutBloc.add(LoadWorkoutsList());
+                    showModalBottomSheet(
+                        context: context,
+                        barrierColor: Colors.black.withAlpha(50),
+                        backgroundColor: Colors.transparent,
+                        builder: (context) => WorkoutSettingsBottomShettScreen(
+                              workoutId: workout.id,
+                              isUserOwner: workout.isUserOwner,
+                              isSearchScreen: false,
+                            ));
                   },
                 );
               },

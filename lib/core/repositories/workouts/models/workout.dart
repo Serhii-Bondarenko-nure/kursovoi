@@ -1,12 +1,11 @@
-import 'package:authorization/core/consts/hive_constants.dart';
-import 'package:authorization/core/repositories/workouts/workouts.dart';
+import 'package:authorization/core/repositories/workouts/models/exercise_card.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'workout.g.dart';
 
-@HiveType(typeId: IdHiveConstants.workoutsBoxId)
+//@HiveType(typeId: IdHiveConstants.workoutsBoxId)
 @JsonSerializable()
 class Workout extends Equatable {
   const Workout({
@@ -19,58 +18,59 @@ class Workout extends Equatable {
     required this.descriptions,
     required this.exercises,
     required this.minutesWorkoutTime,
+    required this.lastComplete,
   });
 
-  @HiveField(0)
+  //@HiveField(0)
   final int id;
 
-  @HiveField(1)
+  //@HiveField(1)
   final String imageUrl;
 
   //Отдых между упражнениями можно задавать в настройках или добавить специальное поле сюда и в json
   //Это нужно будет там для йоги и т.д.
 
-  //Выполнена тренировка или нет
-  //Для отрисовки карточки тренировки и некоторой логики экрана деталей тренировки
-  //true - на карточке будет показано, что она выполнена
-  // На экране деталей тренировки кнопка "Старт" будет заменена на "Выполнить еще раз"
-  // После нажатия сразу перезапишется это поле на false
-  // false - на карточке не будет никаких доп деталей
-  // На экране деталей тренировки кнопка "Старт" будет работать в штатном режиме
-  @HiveField(2)
+  //@HiveField(2)
   final bool isComplete;
 
-  //Владелец тренировки приложение или пользователь
-  //true - пользователь, для кнопки редактирвования и функционала редактирвоания тренировки
-  @HiveField(3)
+  //@HiveField(3)
   final bool isUserOwner;
 
-  @HiveField(4)
+  //@HiveField(4)
   final String name;
 
-  @HiveField(5)
+  //@HiveField(5)
   //@JsonKey(toJson: _typesToJson)
   final List<String> types;
 
-  @HiveField(6)
+  //@HiveField(6)
   //@JsonKey(toJson: _descriptionsToJson)
   final List<String> descriptions;
 
-  @HiveField(7)
-  @JsonKey(toJson: _exercisesToJson)
-  final List<ExerciseCard> exercises;
+  // @HiveField(7)
+  @JsonKey(toJson: _exercisesToJson, fromJson: _exercisesFromJson)
+  final Map<int, ExerciseCard> exercises;
 
-  @HiveField(8)
+  // @HiveField(8)
   final int minutesWorkoutTime;
+
+  //@HiveField(9)
+  final DateTime? lastComplete;
 
   factory Workout.fromJson(Map<String, dynamic> json) =>
       _$WorkoutFromJson(json);
 
   Map<String, dynamic> toJson() => _$WorkoutToJson(this);
 
-  static List<Map<String, dynamic>> _exercisesToJson(
-          List<ExerciseCard> exercisesList) =>
-      exercisesList.map((item) => item.toJson()).toList();
+  static Map<int, ExerciseCard> _exercisesFromJson(
+          Map<String, dynamic> exercisesMap) =>
+      exercisesMap.map((key, value) => MapEntry(
+          int.parse(key.replaceAll(RegExp('[^0-9]'), '')),
+          ExerciseCard.fromJson(value)));
+
+  static Map<String, dynamic> _exercisesToJson(
+          Map<int, ExerciseCard> exercisesMap) =>
+      exercisesMap.map((key, value) => MapEntry("ex$key", value.toJson()));
 
   // static Map<String, dynamic> _typesToJson(List<String> typesList) {
   //   int i = 0;
@@ -99,5 +99,6 @@ class Workout extends Equatable {
         types,
         descriptions,
         exercises,
+        lastComplete,
       ];
 }

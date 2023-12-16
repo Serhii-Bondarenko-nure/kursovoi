@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:authorization/core/repositories/workouts/workouts.dart';
+import 'package:authorization/core/repositories/workouts/models/models.dart';
+import 'package:authorization/core/services/workouts_service.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -10,7 +11,7 @@ part 'workout_card_event.dart';
 part 'workout_card_state.dart';
 
 class WorkoutCardBloc extends Bloc<WorkoutCardEvent, WorkoutCardState> {
-  WorkoutCardBloc({required this.workoutsRepository})
+  WorkoutCardBloc({required this.workoutsService})
       : super(WorkoutCardInitial()) {
     on<LoadWorkoutsListByType>(_loadWorkoutsListByType);
     on<CollapsedWorkoutsList>((event, emit) {
@@ -19,7 +20,7 @@ class WorkoutCardBloc extends Bloc<WorkoutCardEvent, WorkoutCardState> {
     });
   }
 
-  final AbstractWorkoutsRepository workoutsRepository;
+  final WorkoutsService workoutsService;
 
   bool isCollapsed = true;
 
@@ -31,7 +32,7 @@ class WorkoutCardBloc extends Bloc<WorkoutCardEvent, WorkoutCardState> {
       }
 
       final workoutsListByType =
-          await workoutsRepository.getWorkoutsListByType(event.workoutType);
+          await workoutsService.getWorkoutsListByType(event.workoutType);
       emit(WorkoutsListByTypeLoaded(workoutsListByType: workoutsListByType));
     } catch (e, st) {
       emit(WorkoutCardErrorState(exeption: e));
