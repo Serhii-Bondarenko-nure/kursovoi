@@ -1,4 +1,6 @@
+import 'package:authorization/core/services/statistics_weight_service.dart';
 import 'package:authorization/core/services/workout_create_service.dart';
+import 'package:authorization/core/services/workout_performing_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 
@@ -18,6 +20,10 @@ class AuthService {
 
   static Future<bool> registerUserInDatabase() async {
     await GetIt.I<WorkoutCreateService>().updateUserWorkoutsLastId(1000);
+    await GetIt.I<WorkoutPerformingService>().updateIsTrainingInProgress(false);
+    await GetIt.I<StatisticsWeightServise>().setMinWeight(1000);
+    await GetIt.I<StatisticsWeightServise>().setMaxWeight(0);
+
     return true;
   }
 

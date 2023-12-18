@@ -44,3 +44,8 @@ class WorkoutErrorState extends WorkoutState {
   @override
   List<Object?> get props => [exeption];
 }
+
+class NextReloadedState extends WorkoutState {
+  @override
+  List<Object?> get props => [];
+}

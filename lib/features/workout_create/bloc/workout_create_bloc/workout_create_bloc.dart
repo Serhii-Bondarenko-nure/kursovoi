@@ -4,6 +4,7 @@ import 'package:authorization/core/repositories/exercises/abstract_exercises_rep
 import 'package:authorization/core/repositories/workouts/models/workout.dart';
 import 'package:authorization/core/services/workout_create_service.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:talker_flutter/talker_flutter.dart';
@@ -18,16 +19,14 @@ class WorkoutCreateBloc extends Bloc<WorkoutCreateEvent, WorkoutCreateState> {
   }) : super(WorkoutCreateInitial()) {
     on<LoadWorkoutCreateData>(_load);
     on<AddExerciseTapped>((event, emit) {
-      //метод перестановки порядка упражнений
       emit(NextExercisesSearchPage(isWorkoutCreateScreen: true));
     });
     on<DeleteExerciseTapped>((event, emit) async {
       await workoutCreateService.deleteExerciseData(event.exercisesNumber);
-      //метод перестановки порядка упражнений
       emit(ExerciseDeleted());
     });
-    on<SaveWorkoutTapped>((event, emit) {
-      //метод перестановки порядка упражнений
+    on<SaveWorkoutTapped>((event, emit) async {
+      await workoutCreateService.saveNewWorkout();
       emit(NextWorkoutsPage());
     });
   }
@@ -35,7 +34,9 @@ class WorkoutCreateBloc extends Bloc<WorkoutCreateEvent, WorkoutCreateState> {
   final WorkoutCreateService workoutCreateService;
   final AbstractExersicesRepository exersicesRepository;
 
-  Map<int, int> exercisesPositionChange = {};
+  final workoutNameController = TextEditingController();
+
+  int exercisesLengs = 0;
 
   FutureOr<void> _load(
       LoadWorkoutCreateData event, Emitter<WorkoutCreateState> emit) async {
@@ -54,16 +55,16 @@ class WorkoutCreateBloc extends Bloc<WorkoutCreateEvent, WorkoutCreateState> {
         exercisesGifUrl.add(exerciseGifUrl);
       }
 
-      for (var i = 0; i < workout.exercises.length; i++) {
-        exercisesPositionChange.update(i, (value) => i);
-      }
+      workoutNameController.text = workout.name;
+
+      exercisesLengs = workout.exercises.length;
 
       emit(WorkoutCreateDataLoaded(
         workout: workout,
         exercisesGifUrl: exercisesGifUrl,
       ));
     } catch (e, st) {
-      emit(WorkoutCreateDataErrorState(exeption: e));
+      emit(WorkoutCreateErrorState(exeption: e));
       GetIt.I<Talker>().handle(e, st);
     }
   }

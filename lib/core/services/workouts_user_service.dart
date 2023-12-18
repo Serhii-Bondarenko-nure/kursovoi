@@ -40,8 +40,6 @@ class WorkoutsUserService {
   }
 
   Future<Workout> getWorkoutById(int id) async {
-    //Workout workout;
-
     try {
       final snapshot = await workoutsRef.child("id$id").get();
       if (snapshot.exists) {

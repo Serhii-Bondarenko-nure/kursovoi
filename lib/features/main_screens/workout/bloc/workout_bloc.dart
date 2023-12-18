@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:authorization/core/repositories/workouts/models/workout.dart';
 import 'package:authorization/core/services/workout_create_service.dart';
+import 'package:authorization/core/services/workout_performing_service.dart';
 import 'package:authorization/core/services/workouts_user_service.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,11 +19,18 @@ class WorkoutBloc extends Bloc<WorkoutEvent, WorkoutState> {
         emit(NextWorkoutDetailsPage(workoutId: event.workoutId)));
     on<WorkoutCreateTapped>((event, emit) async {
       await GetIt.I<WorkoutCreateService>().setSimpleWorkoutCreationData();
-
       emit(NextCreateWorkoutPage());
     });
+    on<StopWorkoutTapped>((event, emit) async {
+      await GetIt.I<WorkoutPerformingService>()
+          .updateIsTrainingInProgress(false);
+      emit(NextReloadedState());
+    });
   }
+
   final WorkoutsUserService userWorkoutsService;
+
+  bool isTrainingInProgress = false;
 
   FutureOr<void> _load(
       LoadWorkoutsList event, Emitter<WorkoutState> emit) async {
@@ -30,6 +38,9 @@ class WorkoutBloc extends Bloc<WorkoutEvent, WorkoutState> {
       if (state is! WorkoutsListLoaded) {
         emit(WorkoutsListLoading());
       }
+
+      isTrainingInProgress =
+          await GetIt.I<WorkoutPerformingService>().getIsTrainingInProgress();
 
       final workoutsList = await userWorkoutsService.getWorkoutsList();
       emit(WorkoutsListLoaded(workoutsList: workoutsList));

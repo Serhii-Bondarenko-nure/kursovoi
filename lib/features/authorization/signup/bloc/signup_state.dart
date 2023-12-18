@@ -31,7 +31,7 @@ class ErrorState extends SignUpState {
   List<Object?> get props => [message];
 }
 
-class NextTabBarPageState extends SignUpState {
+class NextSetInitialUserParamPageState extends SignUpState {
   @override
   List<Object?> get props => [];
 }

@@ -28,20 +28,42 @@ class SearchContent extends StatelessWidget {
         if (state is TypesListLoaded) {
           final workoutTypesList = state.types.typesList;
 
-          return ListView.separated(
-            padding: const EdgeInsets.only(
-              top: 12,
-              bottom: 5,
-              left: 16,
-              right: 16,
+          return SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                top: 12,
+                bottom: 5,
+                left: 16,
+                right: 16,
+              ),
+              child: Column(
+                children: [
+                  for (var i = 0; i < workoutTypesList.length; i++)
+                    Column(
+                      children: [
+                        WorkoutCategoryTile(workoutType: workoutTypesList[i]),
+                        const SizedBox(height: 10),
+                      ],
+                    ),
+                ],
+              ),
             ),
-            itemCount: workoutTypesList.length,
-            separatorBuilder: (BuildContext context, int index) =>
-                const SizedBox(height: 10),
-            itemBuilder: (context, i) {
-              return WorkoutCategoryTile(workoutType: workoutTypesList[i]);
-            },
           );
+
+          // return ListView.separated(
+          //   padding: const EdgeInsets.only(
+          //     top: 12,
+          //     bottom: 5,
+          //     left: 16,
+          //     right: 16,
+          //   ),
+          //   itemCount: workoutTypesList.length,
+          //   separatorBuilder: (BuildContext context, int index) =>
+          //       const SizedBox(height: 10),
+          //   itemBuilder: (context, i) {
+          //     return WorkoutCategoryTile(workoutType: workoutTypesList[i]);
+          //   },
+          // );
         }
         return const Center(child: CircularProgressIndicator());
       },

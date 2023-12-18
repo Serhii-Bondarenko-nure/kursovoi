@@ -31,12 +31,8 @@ class NextWorkoutsPage extends WorkoutDetailsState {
 }
 
 class NextWorkoutPerformingPage extends WorkoutDetailsState {
-  NextWorkoutPerformingPage({required this.workout});
-
-  final Workout workout;
-
   @override
-  List<Object?> get props => [workout];
+  List<Object?> get props => [];
 }
 
 class NextExerciseDetailsPage extends WorkoutDetailsState {

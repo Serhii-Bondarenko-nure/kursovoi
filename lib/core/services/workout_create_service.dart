@@ -104,11 +104,9 @@ class WorkoutCreateService {
 
   Future<bool> setChangeWorkoutCreationData(int id) async {
     try {
-      DataSnapshot snapshot;
-
-      id >= 1000
-          ? snapshot = await userWorkoutsRef.child("id$id").get()
-          : snapshot = await workoutsRef.child("id$id").get();
+      final snapshot = id >= 1000
+          ? await userWorkoutsRef.child("id$id").get()
+          : await workoutsRef.child("id$id").get();
 
       if (snapshot.exists) {
         final data =
@@ -220,16 +218,17 @@ class WorkoutCreateService {
     }
   }
 
-  Future<bool> updateExerciseDataById(
-    int exercisesNumber,
-    int sets,
-    int repetitions,
-  ) async {
+  Future<bool> updateExerciseCardData(int exercisesNumber,
+      ExerciseCard exerciseCard, int sets, int repetitions) async {
     try {
+      await workoutCreateExercises
+          .update({"ex$exercisesNumber": exerciseCard.toJson()});
+
       await workoutCreateExercises.child("ex$exercisesNumber").update({
-        "repetitions": repetitions,
         "sets": sets,
+        "repetitions": repetitions,
       });
+
       return true;
     } catch (e, st) {
       GetIt.I<Talker>().handle(e, st);
@@ -280,9 +279,11 @@ class WorkoutCreateService {
     }
   }
 
-  Future<bool> updateWorkoutName(String name) async {
+  Future<bool> updateExerciseSetsById(int exercisesNumber, int sets) async {
     try {
-      await workoutCreateRef.update({"name": name});
+      await workoutCreateExercises.child("ex$exercisesNumber").update({
+        "sets": sets,
+      });
       return true;
     } catch (e, st) {
       GetIt.I<Talker>().handle(e, st);
@@ -291,8 +292,23 @@ class WorkoutCreateService {
     }
   }
 
-  Future<bool> changeExercisesPositions() async {
+  Future<bool> updateExerciseRepetitionsById(
+      int exercisesNumber, int repetitions) async {
     try {
+      await workoutCreateExercises.child("ex$exercisesNumber").update({
+        "repetitions": repetitions,
+      });
+      return true;
+    } catch (e, st) {
+      GetIt.I<Talker>().handle(e, st);
+
+      return false;
+    }
+  }
+
+  Future<bool> updateWorkoutName(String name) async {
+    try {
+      await workoutCreateRef.update({"name": name});
       return true;
     } catch (e, st) {
       GetIt.I<Talker>().handle(e, st);
@@ -323,4 +339,29 @@ class WorkoutCreateService {
   }
 
   //Создание тренировки
+  Future<bool> saveNewWorkout() async {
+    try {
+      final snapshot = await workoutCreateRef.get();
+      if (snapshot.exists) {
+        final data =
+            jsonDecode(jsonEncode(snapshot.value)) as Map<String, dynamic>;
+        final workout = Workout.fromJson(data);
+
+        await userWorkoutsRef.update({
+          "id${workout.id}": workout.toJson(),
+        });
+
+        int id = await getUserWorkoutsLastId();
+        await updateUserWorkoutsLastId(++id);
+
+        return true;
+      }
+
+      return false;
+    } catch (e, st) {
+      GetIt.I<Talker>().handle(e, st);
+
+      return false;
+    }
+  }
 }

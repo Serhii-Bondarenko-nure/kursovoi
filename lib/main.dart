@@ -1,7 +1,9 @@
 import 'package:authorization/core/consts/exercises_reporitory_constants.dart';
 import 'package:authorization/core/consts/hive_constants.dart';
 import 'package:authorization/core/repositories/exercises/exercises.dart';
+import 'package:authorization/core/services/statistics_weight_service.dart';
 import 'package:authorization/core/services/workout_create_service.dart';
+import 'package:authorization/core/services/workout_performing_service.dart';
 import 'package:authorization/core/services/workouts_service.dart';
 import 'package:authorization/core/services/workouts_user_service.dart';
 import 'package:authorization/firebase_options.dart';
@@ -140,6 +142,20 @@ Future<void> main() async {
   //Workout Create Service
   GetIt.I.registerLazySingleton<WorkoutCreateService>(
     () => WorkoutCreateService(
+      firebaseDatabase: firebaseDatabase,
+    ),
+  );
+
+  //Workout Performing Service
+  GetIt.I.registerLazySingleton<WorkoutPerformingService>(
+    () => WorkoutPerformingService(
+      firebaseDatabase: firebaseDatabase,
+    ),
+  );
+
+  //Statistics Service
+  GetIt.I.registerLazySingleton<StatisticsWeightServise>(
+    () => StatisticsWeightServise(
       firebaseDatabase: firebaseDatabase,
     ),
   );

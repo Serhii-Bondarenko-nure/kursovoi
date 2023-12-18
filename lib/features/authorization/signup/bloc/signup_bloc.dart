@@ -30,7 +30,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
           emit(LoadingState());
           await AuthService.signUp(emailController.text,
               passwordController.text, userNameController.text);
-          emit(NextTabBarPageState());
+          emit(NextSetInitialUserParamPageState());
           TalkerLog("Go to the next page");
         } else {
           TalkerLog("Validation Error");

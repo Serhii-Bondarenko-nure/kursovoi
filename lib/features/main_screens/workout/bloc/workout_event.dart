@@ -22,3 +22,8 @@ class WorkoutCreateTapped extends WorkoutEvent {
   @override
   List<Object?> get props => [];
 }
+
+class StopWorkoutTapped extends WorkoutEvent {
+  @override
+  List<Object?> get props => [];
+}

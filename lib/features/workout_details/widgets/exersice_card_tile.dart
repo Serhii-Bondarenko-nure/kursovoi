@@ -27,14 +27,12 @@ class ExerciseCardTile extends StatelessWidget {
       title: Text(
         exerciseCard.name,
         style: const TextStyle(
-          color: Colors.black,
           fontSize: 17,
         ),
       ),
       subtitle: Text(
         "${exerciseCard.sets}x${exerciseCard.repetitions}",
         style: const TextStyle(
-          color: Colors.black,
           fontSize: 16,
         ),
       ),

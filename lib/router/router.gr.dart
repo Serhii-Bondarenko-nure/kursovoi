@@ -53,6 +53,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ResetPasswordScreen(),
       );
     },
+    SetInitialUserParamRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SetInitialUserParamScreen(),
+      );
+    },
     SignInRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -101,13 +107,11 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     WorkoutPerformingRoute.name: (routeData) {
-      final args = routeData.argsAs<WorkoutPerformingRouteArgs>();
+      final args = routeData.argsAs<WorkoutPerformingRouteArgs>(
+          orElse: () => const WorkoutPerformingRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: WorkoutPerformingScreen(
-          key: args.key,
-          workout: args.workout,
-        ),
+        child: WorkoutPerformingScreen(key: args.key),
       );
     },
     WorkoutSettingsBottomShettRoute.name: (routeData) {
@@ -239,6 +243,20 @@ class ResetPasswordRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ResetPasswordRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SetInitialUserParamScreen]
+class SetInitialUserParamRoute extends PageRouteInfo<void> {
+  const SetInitialUserParamRoute({List<PageRouteInfo>? children})
+      : super(
+          SetInitialUserParamRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SetInitialUserParamRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -399,14 +417,10 @@ class WorkoutDetailsRouteArgs {
 class WorkoutPerformingRoute extends PageRouteInfo<WorkoutPerformingRouteArgs> {
   WorkoutPerformingRoute({
     Key? key,
-    required Workout workout,
     List<PageRouteInfo>? children,
   }) : super(
           WorkoutPerformingRoute.name,
-          args: WorkoutPerformingRouteArgs(
-            key: key,
-            workout: workout,
-          ),
+          args: WorkoutPerformingRouteArgs(key: key),
           initialChildren: children,
         );
 
@@ -417,18 +431,13 @@ class WorkoutPerformingRoute extends PageRouteInfo<WorkoutPerformingRouteArgs> {
 }
 
 class WorkoutPerformingRouteArgs {
-  const WorkoutPerformingRouteArgs({
-    this.key,
-    required this.workout,
-  });
+  const WorkoutPerformingRouteArgs({this.key});
 
   final Key? key;
 
-  final Workout workout;
-
   @override
   String toString() {
-    return 'WorkoutPerformingRouteArgs{key: $key, workout: $workout}';
+    return 'WorkoutPerformingRouteArgs{key: $key}';
   }
 }
 

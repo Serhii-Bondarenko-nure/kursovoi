@@ -2,6 +2,7 @@ import 'package:authorization/features/authorization/authorization.dart';
 import 'package:authorization/features/exercise_details/exercise_details.dart';
 import 'package:authorization/features/exercises_search/exercises_search.dart';
 import 'package:authorization/features/onboarding/onboarding.dart';
+import 'package:authorization/features/set_init_user_param/view/set_initial_user_param_screen.dart';
 import 'package:authorization/features/tab_bar/tab_bar.dart';
 import 'package:authorization/features/firebase_streem/firebase_streem_screen.dart';
 import 'package:authorization/features/workout_create/workout_create.dart';
@@ -10,8 +11,6 @@ import 'package:authorization/features/workout_performing/workout_performing.dar
 import 'package:authorization/features/workout_settings_bottmo_shett/workout_settings_bottmo_shett.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-
-import '../core/repositories/workouts/models/models.dart';
 
 part 'router.gr.dart';
 
@@ -41,5 +40,8 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
             page: WorkoutSettingsBottomShettRoute.page,
             path: '/workout_settings_bottom_shett'),
+
+        AutoRoute(
+            page: SetInitialUserParamRoute.page, path: '/set_init_user_param'),
       ];
 }

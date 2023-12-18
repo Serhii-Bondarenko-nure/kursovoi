@@ -1,6 +1,6 @@
 import 'package:authorization/core/repositories/exercises/abstract_exercises_repository.dart';
 import 'package:authorization/core/services/workout_create_service.dart';
-import 'package:authorization/features/workout_create/bloc/workout_create_bloc.dart';
+import 'package:authorization/features/workout_create/bloc/workout_create_bloc/workout_create_bloc.dart';
 import 'package:authorization/features/workout_create/widgets/workout_create_content.dart';
 import 'package:authorization/router/router.dart';
 import 'package:auto_route/auto_route.dart';
@@ -21,7 +21,7 @@ class WorkoutCreateScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<WorkoutCreateBloc>(
-        create: (context) => workoutCreateBloc..add(LoadWorkoutCreateData()),
+        create: (context) => workoutCreateBloc,
         child: BlocListener<WorkoutCreateBloc, WorkoutCreateState>(
           listener: (context, state) {
             if (state is NextWorkoutsPage) {
@@ -36,7 +36,7 @@ class WorkoutCreateScreen extends StatelessWidget {
                       workoutCreateBloc.add(LoadWorkoutCreateData()));
             } else if (state is ExerciseDeleted) {
               workoutCreateBloc.add(LoadWorkoutCreateData());
-            } else if (state is WorkoutCreateDataErrorState) {
+            } else if (state is WorkoutCreateErrorState) {
               ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text(state.exeption.toString())));
             }

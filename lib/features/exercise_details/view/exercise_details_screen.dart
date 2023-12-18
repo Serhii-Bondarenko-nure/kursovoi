@@ -43,18 +43,20 @@ class ExerciseDetailsScreen extends StatelessWidget {
       bloc: exerciseDetailsBloc..add(LoadExerciseDetailsEvent(id: exerciseId)),
       builder: (context, state) {
         if (state is ExerciseDetailsLoaded) {
-          return ListView(
-            children: [
-              const SizedBox(height: 14),
-              _createTitle(context, state.exercise),
-              _createGif(context, state.exercise),
-              _createCategories(context, state.exercise),
-              const SizedBox(height: 15),
-              _createDescription(context, state.exercise),
-              const SizedBox(height: 10),
-              _createTargetMuscles(context, state.exercise),
-              const SizedBox(height: 20),
-            ],
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                const SizedBox(height: 14),
+                _createTitle(context, state.exercise),
+                _createGif(context, state.exercise),
+                _createCategories(context, state.exercise),
+                const SizedBox(height: 15),
+                _createDescription(context, state.exercise),
+                const SizedBox(height: 10),
+                _createTargetMuscles(context, state.exercise),
+                const SizedBox(height: 20),
+              ],
+            ),
           );
         }
         return const Center(child: CircularProgressIndicator());

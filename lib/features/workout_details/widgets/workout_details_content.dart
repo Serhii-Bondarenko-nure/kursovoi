@@ -1,11 +1,15 @@
 import 'package:authorization/core/consts/color_constants.dart';
 import 'package:authorization/core/repositories/workouts/models/workout.dart';
+import 'package:authorization/core/services/workout_performing_service.dart';
 import 'package:authorization/features/common_widgets/fitness_button.dart';
 import 'package:authorization/features/workout_details/bloc/workout_details_bloc.dart';
 import 'package:authorization/features/workout_details/widgets/widgets.dart';
 import 'package:authorization/features/workout_settings_bottmo_shett/view/workout_settings_bottmo_shett_screen.dart';
+import 'package:authorization/router/router.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 class WorkoutDetailsContent extends StatelessWidget {
   const WorkoutDetailsContent({
@@ -194,47 +198,64 @@ class WorkoutDetailsContent extends StatelessWidget {
             onTap: () {
               isSearchScreen
                   ? workoutDetailsBloc.add(AddWorkoutTapped(workout: workout))
-                  : workout.isComplete
-                      ? workoutDetailsBloc
-                          .add(RepeatWorkoutTapped(workout: workout))
-                      : workoutDetailsBloc
-                          .add(StartWorkoutTapped(workout: workout));
+                  : workoutDetailsBloc.isTrainingInProgress
+                      ? showDialog(
+                          barrierColor: Colors.black.withAlpha(50),
+                          context: context,
+                          builder: (context) => _createWorkoutChoiseDialog(
+                              context, workoutDetailsBloc, workout))
+                      : workout.isComplete
+                          ? workoutDetailsBloc
+                              .add(RepeatWorkoutTapped(workout: workout))
+                          : workoutDetailsBloc
+                              .add(StartWorkoutTapped(workout: workout));
             },
           ),
         ),
       ],
     );
+  }
 
-    // return Padding(
-    //   padding: const EdgeInsets.only(
-    //     top: 10,
-    //     bottom: 10,
-    //   ),
-    //   child: ElevatedButton(
-    //     onPressed: () {
-    //       // isSearchScreen
-    //       //     ? workoutDetailsBloc.add(AddWorkoutTapped(workout: workout))
-    //       //     : workout.isComplete
-    //       //         ? workoutDetailsBloc
-    //       //             .add(RepeatWorkoutTapped(workout: workout))
-    //       //         : workoutDetailsBloc
-    //       //             .add(StartWorkoutTapped(workout: workout));
-    //     },
-    //     style: ElevatedButton.styleFrom(
-    //       backgroundColor: ColorConstants.primaryColor,
-    //       padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 8),
-    //     ),
-    //     child: Text(
-    //         isSearchScreen
-    //             ? "Add a workout"
-    //             : workout.isComplete
-    //                 ? "Run again"
-    //                 : "Begin",
-    //         style: const TextStyle(
-    //           color: Colors.white,
-    //           fontSize: 24,
-    //         )),
-    //   ),
-    // );
+  Widget _createWorkoutChoiseDialog(BuildContext context,
+      WorkoutDetailsBloc workoutDetailsBloc, Workout workout) {
+    return AlertDialog(
+      surfaceTintColor: Colors.white,
+      title: const Text("You're training"),
+      content: const Text(
+          "If you start a new workout, your old workout will be deleted forever."),
+      actions: [
+        TextButton(
+          child: const Text(
+            'Resume current workout',
+            style: TextStyle(fontSize: 18),
+          ),
+          onPressed: () => AutoRouter.of(context)
+              .push(WorkoutPerformingRoute())
+              .then((result) => AutoRouter.of(context).pop()),
+        ),
+        TextButton(
+          child: const Text(
+            'Start a new workout',
+            style: TextStyle(fontSize: 18),
+          ),
+          onPressed: () async {
+            await GetIt.I<WorkoutPerformingService>()
+                .setWorkoutPerformingData(workout);
+            AutoRouter.of(context)
+                .push(WorkoutPerformingRoute())
+                .then((result) => AutoRouter.of(context).pop());
+          },
+        ),
+        TextButton(
+          child: const Text(
+            'Cancel',
+            style: TextStyle(fontSize: 18),
+          ),
+          onPressed: () async {
+            AutoRouter.of(context).pop();
+          },
+        ),
+      ],
+    );
   }
 }

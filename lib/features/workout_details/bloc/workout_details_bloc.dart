@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:authorization/core/repositories/exercises/exercises.dart';
 import 'package:authorization/core/repositories/workouts/models/models.dart';
+import 'package:authorization/core/services/workout_performing_service.dart';
 import 'package:authorization/core/services/workouts_service.dart';
 import 'package:authorization/core/services/workouts_user_service.dart';
 import 'package:equatable/equatable.dart';
@@ -24,12 +25,15 @@ class WorkoutDetailsBloc
       await userWorkoutsService.updateWorkoutById(event.workout);
       emit(NextWorkoutsPage());
     });
-    on<StartWorkoutTapped>((event, emit) =>
-        emit(NextWorkoutPerformingPage(workout: event.workout)));
+    on<StartWorkoutTapped>((event, emit) async {
+      await GetIt.I<WorkoutPerformingService>()
+          .setWorkoutPerformingData(event.workout);
+      emit(NextWorkoutPerformingPage());
+    });
     on<RepeatWorkoutTapped>((event, emit) async {
       await userWorkoutsService.updateWorkoutIsCompleteFieldById(
           event.workout.id, false);
-      emit(NextWorkoutPerformingPage(workout: event.workout));
+      emit(NextWorkoutPerformingPage());
     });
     on<ExerciseDetailsTapped>((event, emit) {
       emit(NextExerciseDetailsPage(exerciseId: event.exerciseId));
@@ -46,6 +50,8 @@ class WorkoutDetailsBloc
   final WorkoutsService workoutsService;
   final AbstractExersicesRepository exersicesRepository;
   final WorkoutsUserService userWorkoutsService;
+
+  bool isTrainingInProgress = false;
 
   FutureOr<void> _load(
       LoadWorkoutDetailsEvent event, Emitter<WorkoutDetailsState> emit) async {
@@ -65,6 +71,9 @@ class WorkoutDetailsBloc
             .then((exercise) => exercise.gifUrl);
         exercisesGifUrl.add(exerciseGifUrl);
       }
+
+      isTrainingInProgress =
+          await GetIt.I<WorkoutPerformingService>().getIsTrainingInProgress();
 
       emit(WorkoutDetailsLoaded(
         workout: workout,

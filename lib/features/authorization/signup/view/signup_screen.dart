@@ -21,14 +21,17 @@ class SignUpScreen extends StatelessWidget {
       create: (context) => SignUpBloc(),
       child: BlocConsumer<SignUpBloc, SignUpState>(
         listenWhen: (_, currState) =>
-            currState is NextTabBarPageState ||
+            currState is NextSetInitialUserParamPageState ||
             currState is NextSignInPageState ||
             currState is ErrorState,
         listener: (context, state) {
-          if (state is NextTabBarPageState) {
+          if (state is NextSetInitialUserParamPageState) {
             AutoRouter.of(context).pushAndPopUntil(
-                TabBarRoute(transitionIndex: 0),
+                const SetInitialUserParamRoute(),
                 predicate: (route) => false);
+            // AutoRouter.of(context).pushAndPopUntil(
+            //     TabBarRoute(transitionIndex: 0),
+            //     predicate: (route) => false);
           } else if (state is NextSignInPageState) {
             AutoRouter.of(context).pushAndPopUntil(const SignInRoute(),
                 predicate: (route) => false);

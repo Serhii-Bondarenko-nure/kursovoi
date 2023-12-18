@@ -1,6 +1,8 @@
 import 'package:authorization/core/consts/color_constants.dart';
 import 'package:authorization/core/consts/text_constants.dart';
+import 'package:authorization/core/services/statistics_weight_service.dart';
 import 'package:authorization/core/services/workout_create_service.dart';
+import 'package:authorization/core/services/workout_performing_service.dart';
 import 'package:authorization/core/services/workouts_service.dart';
 import 'package:authorization/core/services/workouts_user_service.dart';
 import 'package:authorization/features/main_screens/workout/bloc/workout_bloc.dart';
@@ -15,7 +17,8 @@ class WorkoutScreen extends StatelessWidget {
   WorkoutScreen({super.key});
 
   final workoutBloc =
-      WorkoutBloc(userWorkoutsService: GetIt.I<WorkoutsUserService>());
+      WorkoutBloc(userWorkoutsService: GetIt.I<WorkoutsUserService>())
+        ..add(LoadWorkoutsList());
 
   @override
   Widget build(BuildContext context) {
@@ -27,34 +30,23 @@ class WorkoutScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
       ),
       body: _createBody(context),
-      floatingActionButton: SizedBox(
-        width: 58,
-        height: 58,
-        child: FloatingActionButton(
-          backgroundColor: ColorConstants.primaryColor,
-          onPressed: () {
-            workoutBloc.add(WorkoutCreateTapped());
-
-            // final workoutServise = GetIt.I<WorkoutsService>();
-            // workoutServise.developmentCreateWorkoutsList();
-
-            //final workoutCreateService = GetIt.I<WorkoutCreateService>();
-            //workoutCreateService.setSimpleWorkoutCreationData();
-            //workoutCreateService.setChangeWorkoutCreationData(0);
-            //workoutCreateService.setCopyWorkoutCreationData(0);
-            //workoutCreateService.exercisesNumberPlusMinus(false);
-            // AutoRouter.of(context)
-            //     .push(ExercisesSearchRoute(isWorkoutCreateScreen: true));
-            //workoutCreateService.deleteExerciseData(3);
-            //workoutCreateService.updateExerciseDataById(0, 0, 0);
-            //workoutCreateService.updateWorkoutName("New name");
-          },
-          tooltip: 'Create',
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-          child: const Icon(
-            Icons.add,
-            size: 38,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 25),
+        child: SizedBox(
+          width: 58,
+          height: 58,
+          child: FloatingActionButton(
+            backgroundColor: ColorConstants.primaryColor,
+            onPressed: () async {
+              workoutBloc.add(WorkoutCreateTapped());
+            },
+            tooltip: 'Create',
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+            child: const Icon(
+              Icons.add,
+              size: 38,
+            ),
           ),
         ),
       ),
@@ -77,6 +69,8 @@ class WorkoutScreen extends StatelessWidget {
               AutoRouter.of(context)
                   .push(WorkoutCreateRoute())
                   .then((result) => workoutBloc.add(LoadWorkoutsList()));
+            } else if (state is NextReloadedState) {
+              workoutBloc.add(LoadWorkoutsList());
             } else if (state is WorkoutErrorState) {
               ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text(state.exeption.toString())));

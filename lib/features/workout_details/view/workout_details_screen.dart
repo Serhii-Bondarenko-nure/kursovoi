@@ -43,11 +43,9 @@ class WorkoutDetailsScreen extends StatelessWidget {
                 TabBarRoute(transitionIndex: 0),
                 predicate: (route) => false);
           } else if (state is NextWorkoutPerformingPage) {
-            AutoRouter.of(context)
-                .push(WorkoutPerformingRoute(workout: state.workout))
-                .then((result) => workoutDetailsBloc.add(
-                    LoadWorkoutDetailsEvent(
-                        workoutId: workoutId, isSearchScreen: isSearchScreen)));
+            AutoRouter.of(context).push(WorkoutPerformingRoute()).then(
+                (result) => workoutDetailsBloc.add(LoadWorkoutDetailsEvent(
+                    workoutId: workoutId, isSearchScreen: isSearchScreen)));
           } else if (state is WorkoutDetailsErrorState) {
             ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text(state.exeption.toString())));

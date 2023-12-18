@@ -44,8 +44,8 @@ class NextWorkoutsPage extends WorkoutCreateState {
   List<Object?> get props => [];
 }
 
-class WorkoutCreateDataErrorState extends WorkoutCreateState {
-  WorkoutCreateDataErrorState({required this.exeption});
+class WorkoutCreateErrorState extends WorkoutCreateState {
+  WorkoutCreateErrorState({required this.exeption});
   final Object? exeption;
 
   @override

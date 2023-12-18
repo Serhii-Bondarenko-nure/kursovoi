@@ -1,4 +1,5 @@
 import 'package:authorization/core/consts/text_constants.dart';
+import 'package:authorization/features/main_screens/statistics/widgets/statistics_content.dart';
 import 'package:flutter/material.dart';
 
 class StatisticsScreen extends StatelessWidget {
@@ -13,7 +14,7 @@ class StatisticsScreen extends StatelessWidget {
             child: Text(TextConstants.statiscticIcon)),
         automaticallyImplyLeading: false,
       ),
-      body: Container(),
+      body: StatisticsContent(),
     );
   }
 }
