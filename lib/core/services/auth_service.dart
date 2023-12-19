@@ -21,6 +21,7 @@ class AuthService {
   static Future<bool> registerUserInDatabase() async {
     await GetIt.I<WorkoutCreateService>().updateUserWorkoutsLastId(1000);
     await GetIt.I<WorkoutPerformingService>().updateIsTrainingInProgress(false);
+    await GetIt.I<WorkoutPerformingService>().updateLastWorkoutInHistory(0);
     await GetIt.I<StatisticsWeightServise>().setMinWeight(1000);
     await GetIt.I<StatisticsWeightServise>().setMaxWeight(0);
 

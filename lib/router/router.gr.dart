@@ -126,6 +126,14 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    WorkoutHistoryRoute.name: (routeData) {
+      final args = routeData.argsAs<WorkoutHistoryRouteArgs>(
+          orElse: () => const WorkoutHistoryRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WorkoutHistoryScreen(key: args.key),
+      );
+    },
     WorkoutPerformingRoute.name: (routeData) {
       final args = routeData.argsAs<WorkoutPerformingRouteArgs>(
           orElse: () => const WorkoutPerformingRouteArgs());
@@ -487,6 +495,35 @@ class WorkoutDetailsRouteArgs {
   @override
   String toString() {
     return 'WorkoutDetailsRouteArgs{key: $key, workoutId: $workoutId, isSearchScreen: $isSearchScreen}';
+  }
+}
+
+/// generated route for
+/// [WorkoutHistoryScreen]
+class WorkoutHistoryRoute extends PageRouteInfo<WorkoutHistoryRouteArgs> {
+  WorkoutHistoryRoute({
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          WorkoutHistoryRoute.name,
+          args: WorkoutHistoryRouteArgs(key: key),
+          initialChildren: children,
+        );
+
+  static const String name = 'WorkoutHistoryRoute';
+
+  static const PageInfo<WorkoutHistoryRouteArgs> page =
+      PageInfo<WorkoutHistoryRouteArgs>(name);
+}
+
+class WorkoutHistoryRouteArgs {
+  const WorkoutHistoryRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'WorkoutHistoryRouteArgs{key: $key}';
   }
 }
 

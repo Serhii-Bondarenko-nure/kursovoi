@@ -39,6 +39,10 @@ class WorkoutScreen extends StatelessWidget {
             backgroundColor: ColorConstants.primaryColor,
             onPressed: () async {
               workoutBloc.add(WorkoutCreateTapped());
+
+              // final workoutPerformingService =
+              //     GetIt.I<WorkoutPerformingService>();
+              // await workoutPerformingService.getWorkoutHistoryData();
             },
             tooltip: 'Create',
             shape:

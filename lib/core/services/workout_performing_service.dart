@@ -21,6 +21,11 @@ class WorkoutPerformingService {
   late final workoutPerformingRef = userRef.child("workoutPerformingData");
   late final exercisesFlagsRef = workoutPerformingRef.child("exercisesFlags");
 
+  late final userStatisticsRef = userRef.child("statistics");
+  late final workoutsHistoryRef = userStatisticsRef.child("workoutsHistory");
+  late final lastWorkoutInHistoryRef =
+      userStatisticsRef.child("lastWorkoutInHistory");
+
   //Получение данных
   //Также вызвать метод getExercisesFlags
 
@@ -282,5 +287,99 @@ class WorkoutPerformingService {
 
       return false;
     }
+  }
+
+  //Сохранение тренировки в историю
+
+  Future<List<Workout>> getWorkoutHistoryData() async {
+    try {
+      final snapshot = await workoutsHistoryRef.get();
+      if (snapshot.exists) {
+        final data =
+            jsonDecode(jsonEncode(snapshot.value)) as Map<String, dynamic>;
+
+        final workouts = data.values;
+
+        final workoutsList = workouts
+            .map((e) => Workout.fromJson(e as Map<String, dynamic>))
+            .toList();
+        workoutsList
+            .sort(((a, b) => a.lastComplete!.compareTo(b.lastComplete!)));
+
+        return workoutsList;
+      }
+    } catch (e, st) {
+      GetIt.I<Talker>().handle(e, st);
+    }
+
+    return [];
+  }
+
+  Future<bool> saveWorkout() async {
+    DateTime start;
+    DateTime end = DateTime.now();
+    try {
+      final snapshotStart =
+          await workoutPerformingRef.child("workoutStart").get();
+      final snapshotEnd =
+          await workoutPerformingRef.child("lastComplete").get();
+
+      if (snapshotStart.exists && snapshotEnd.exists) {
+        start = DateTime.parse(snapshotStart.value as String);
+        end = DateTime.parse(snapshotEnd.value as String);
+        final minutesWorkoutTime = end.difference(start).inMinutes;
+
+        await workoutPerformingRef.update({
+          "minutesWorkoutTime": minutesWorkoutTime,
+        });
+      }
+
+      final snapshotWorkout = await workoutPerformingRef.get();
+      if (snapshotWorkout.exists) {
+        final data = jsonDecode(jsonEncode(snapshotWorkout.value))
+            as Map<String, dynamic>;
+
+        final workout = Workout.fromJson(data);
+        final number = await getLastWorkoutInHistory();
+        await workoutsHistoryRef.update({
+          "number$number": workout.toJson(),
+        });
+
+        await updateLastWorkoutInHistory(number + 1);
+      }
+      return true;
+    } catch (e, st) {
+      GetIt.I<Talker>().handle(e, st);
+
+      return false;
+    }
+  }
+
+  Future<bool> updateLastWorkoutInHistory(int lastWorkoutInHistory) async {
+    try {
+      await userStatisticsRef.update({
+        "lastWorkoutInHistory": lastWorkoutInHistory,
+      });
+
+      return true;
+    } catch (e, st) {
+      GetIt.I<Talker>().handle(e, st);
+
+      return false;
+    }
+  }
+
+  Future<int> getLastWorkoutInHistory() async {
+    int lastWorkoutInHistory = 0;
+    try {
+      final snapshot = await lastWorkoutInHistoryRef.get();
+      if (snapshot.exists) {
+        final data = jsonDecode(jsonEncode(snapshot.value)) as int;
+        lastWorkoutInHistory = data;
+      }
+    } catch (e, st) {
+      GetIt.I<Talker>().handle(e, st);
+    }
+    return lastWorkoutInHistory;
   }
 }

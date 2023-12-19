@@ -70,20 +70,20 @@ class TabBarScreen extends StatelessWidget {
           ),
           label: TextConstants.searchIcon,
         ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.chat,
-            color: bloc.currentIndex == 2
-                ? ColorConstants.primaryColor
-                : Colors.grey,
-          ),
-          label: TextConstants.chatIcon,
-        ),
+        // BottomNavigationBarItem(
+        //   icon: Icon(
+        //     Icons.chat,
+        //     color: bloc.currentIndex == 2
+        //         ? ColorConstants.primaryColor
+        //         : Colors.grey,
+        //   ),
+        //   label: TextConstants.chatIcon,
+        // ),
         BottomNavigationBarItem(
           icon: Icon(
             Icons.bar_chart_rounded,
             //Icons.insert_chart_outlined_rounded,
-            color: bloc.currentIndex == 3
+            color: bloc.currentIndex == 2
                 ? ColorConstants.primaryColor
                 : Colors.grey,
           ),
@@ -92,7 +92,7 @@ class TabBarScreen extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Icon(
             Icons.account_circle_outlined,
-            color: bloc.currentIndex == 4
+            color: bloc.currentIndex == 3
                 ? ColorConstants.primaryColor
                 : Colors.grey,
           ),

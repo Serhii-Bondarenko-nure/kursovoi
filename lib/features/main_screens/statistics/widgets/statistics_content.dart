@@ -1,5 +1,7 @@
 import 'package:authorization/core/services/statistics_weight_service.dart';
+import 'package:authorization/features/common_widgets/settings_container.dart';
 import 'package:authorization/features/main_screens/statistics/bloc/weight_bloc/weight_bloc.dart';
+import 'package:authorization/router/router.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -32,9 +34,21 @@ class StatisticsContent extends StatelessWidget {
           //     borderRadius: BorderRadius.all(Radius.circular(20)),
           //   ),
           // ),
+          Padding(
+            padding:
+                const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+            child: SettingsContainer(
+                withArrow: true,
+                child: const Text("Workouts History",
+                    style:
+                        TextStyle(fontSize: 17, fontWeight: FontWeight.w500)),
+                onTap: () {
+                  AutoRouter.of(context).push(WorkoutHistoryRoute());
+                }),
+          ),
           const SizedBox(height: 10),
           _createWeightGraphBMI(context),
-          const SizedBox(height: 50),
+          const SizedBox(height: 30),
         ],
       ),
     );

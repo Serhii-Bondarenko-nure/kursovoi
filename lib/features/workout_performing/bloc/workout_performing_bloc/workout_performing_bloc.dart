@@ -27,7 +27,7 @@ class WorkoutPerformingBloc
           .updateLastCompleteInUserWorkouts(event.workoutId);
       await workoutPerformingService.updateLastCompleteInWorkoutPerforming();
 
-      //Ну и метод сохранения данных в статистику
+      await workoutPerformingService.saveWorkout();
 
       emit(NextStaticticsPage());
     });

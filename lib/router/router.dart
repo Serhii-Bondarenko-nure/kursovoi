@@ -10,6 +10,7 @@ import 'package:authorization/features/tab_bar/tab_bar.dart';
 import 'package:authorization/features/firebase_streem/firebase_streem_screen.dart';
 import 'package:authorization/features/workout_create/workout_create.dart';
 import 'package:authorization/features/workout_details/workout_details.dart';
+import 'package:authorization/features/workout_history/view/workout_history_screen.dart';
 import 'package:authorization/features/workout_performing/workout_performing.dart';
 import 'package:authorization/features/workout_settings_bottmo_shett/workout_settings_bottmo_shett.dart';
 import 'package:auto_route/auto_route.dart';
@@ -50,5 +51,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: ChangePasswordRoute.page, path: '/change_password'),
         AutoRoute(page: ReminderRoute.page, path: '/reminder'),
         AutoRoute(page: EditAccountRoute.page, path: '/edit_account'),
+        AutoRoute(page: WorkoutHistoryRoute.page, path: '/worjout_history'),
       ];
 }
