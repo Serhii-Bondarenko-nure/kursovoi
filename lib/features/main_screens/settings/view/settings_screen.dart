@@ -12,6 +12,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -108,10 +109,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     '${TextConstants.rateUsOn}${Platform.isIOS ? 'App store' : 'Play market'}',
                     style: const TextStyle(
                         fontSize: 17, fontWeight: FontWeight.w500)),
-                onTap: () {
-                  return (Platform.isIOS
-                      ? 'https://www.apple.com/app-store/'
-                      : 'https://play.google.com/store');
+                onTap: () async {
+                  // launch(Platform.isIOS
+                  //     ? 'https://www.apple.com/app-store/'
+                  //     : 'https://play.google.com/store');
+
+                  // final Uri url = Uri.parse(Platform.isIOS
+                  //     ? 'https://www.apple.com/app-store/'
+                  //     : 'https://play.google.com/store');
+                  // if (!await launchUrl(url)) {
+                  //   throw Exception('Could not launch $url');
+                  // }
                 },
               ),
             SettingsContainer(
@@ -136,21 +144,27 @@ class _SettingsScreenState extends State<SettingsScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      //launch('https://www.facebook.com');
+                    },
                     style: TextButton.styleFrom(
                         shape: const CircleBorder(),
                         backgroundColor: Colors.white,
                         elevation: 1),
                     child: Image.asset(PathConstants.facebook)),
                 TextButton(
-                    onPressed: () => {},
+                    onPressed: () {
+                      //launch('https://www.instagram.com');
+                    },
                     style: TextButton.styleFrom(
                         shape: const CircleBorder(),
                         backgroundColor: Colors.white,
                         elevation: 1),
                     child: Image.asset(PathConstants.instagram)),
                 TextButton(
-                    onPressed: () => {},
+                    onPressed: () {
+                      //launch('https://twitter.com');
+                    },
                     style: TextButton.styleFrom(
                         shape: const CircleBorder(),
                         backgroundColor: Colors.white,
