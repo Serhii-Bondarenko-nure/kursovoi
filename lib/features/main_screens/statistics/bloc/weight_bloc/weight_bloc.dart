@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:authorization/core/services/statistics_weight_service.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:talker_flutter/talker_flutter.dart';
@@ -27,9 +28,6 @@ class WeightBloc extends Bloc<WeightEvent, WeightState> {
 
   final StatisticsWeightServise statisticsWeightServise;
 
-  String weightStr = "";
-  String heightStr = "";
-
   FutureOr<void> _load(LoadWeightData event, Emitter<WeightState> emit) async {
     try {
       if (state is! WeightDataLoaded) {
@@ -42,9 +40,6 @@ class WeightBloc extends Bloc<WeightEvent, WeightState> {
       final minWeight = await statisticsWeightServise.getMinWeight();
       final maxWeight = await statisticsWeightServise.getMaxWeight();
       final weightsMap = await statisticsWeightServise.getWeightsForGraph();
-
-      weightStr = (await statisticsWeightServise.getWeight()).toString();
-      heightStr = (await statisticsWeightServise.getHeight()).toString();
 
       emit(WeightDataLoaded(
           bmi: bmi,

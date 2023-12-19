@@ -14,8 +14,8 @@ class PathConstants {
   static const String workouts = 'assets/icons/home/2.0x/workouts_icon.png';
   //static const String settings = 'assets/icons/home/settings_icon.png';
 
-  //// Home
-  // static const String profile = 'assets/images/home/profile.png';
+  // Home
+  static const String profile = 'assets/images/home/profile.png';
   // static const String finished = 'assets/images/home/finished.png';
   // static const String inProgress = 'assets/icons/home/inProgress.png';
   // static const String timeSent = 'assets/icons/home/time.png';

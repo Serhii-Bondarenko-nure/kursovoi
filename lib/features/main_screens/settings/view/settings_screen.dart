@@ -1,60 +1,164 @@
+import 'dart:io';
+
+import 'package:authorization/core/consts/color_constants.dart';
+import 'package:authorization/core/consts/path_constants.dart';
 import 'package:authorization/core/consts/text_constants.dart';
+import 'package:authorization/core/services/auth_service.dart';
+import 'package:authorization/features/common_widgets/settings_container.dart';
+import 'package:authorization/features/main_screens/settings/bloc/settings_bloc.dart';
 import 'package:authorization/router/router.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 
   @override
-  State<SettingsScreen> createState() => _SettingsScreenState();
+  _SettingsScreenState createState() => _SettingsScreenState();
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  final user = FirebaseAuth.instance.currentUser;
-
-  Future<void> signOut() async {
-    await FirebaseAuth.instance.signOut();
-
-    AutoRouter.of(context).push(const SignUpRoute());
-  }
-
+  String? photoUrl;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: const Padding(
-            padding: EdgeInsets.only(left: 12),
-            child: Text(TextConstants.settingsIcon)),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            tooltip: 'Open shopping cart',
-            onPressed: () => signOut(),
-          ),
-        ],
-        automaticallyImplyLeading: false,
+    return Scaffold(body: _buildContext(context));
+  }
+
+  BlocProvider<SettingsBloc> _buildContext(BuildContext context) {
+    return BlocProvider<SettingsBloc>(
+      create: (context) => SettingsBloc(),
+      child: BlocConsumer<SettingsBloc, SettingsState>(
+        builder: (context, state) {
+          return _settingsContent(context);
+        },
+        listener: (context, state) {},
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Ваш Email: ${user?.email}'),
-            Text('Ваше имя: ${user?.displayName}'),
-            TextButton(
-              onPressed: () => signOut(),
-              child: const Text('Выйти'),
+    );
+  }
+
+  Widget _settingsContent(BuildContext context) {
+    final User? user = FirebaseAuth.instance.currentUser;
+    final displayName = user?.displayName ?? "No Username";
+    photoUrl = user?.photoURL;
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+          child: Column(children: [
+            Stack(alignment: Alignment.topRight, children: [
+              Center(
+                child: photoUrl == null
+                    ? const CircleAvatar(
+                        backgroundImage: AssetImage(PathConstants.profile),
+                        radius: 60)
+                    : CircleAvatar(
+                        radius: 60,
+                        child: ClipOval(
+                            child: FadeInImage.assetNetwork(
+                          placeholder: PathConstants.profile,
+                          image: photoUrl!,
+                          fit: BoxFit.cover,
+                          width: 200,
+                          height: 120,
+                        )),
+                      ),
+              ),
+              TextButton(
+                  onPressed: () {
+                    AutoRouter.of(context).push(const EditAccountRoute());
+                    setState(() {
+                      photoUrl = user?.photoURL;
+                    });
+                  },
+                  style: TextButton.styleFrom(
+                      shape: const CircleBorder(),
+                      backgroundColor:
+                          ColorConstants.primaryColor.withOpacity(0.16)),
+                  child: const Icon(Icons.edit,
+                      color: ColorConstants.primaryColor)),
+            ]),
+            const SizedBox(height: 15),
+            Text(displayName,
+                style:
+                    const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 15),
+            SettingsContainer(
+              withArrow: true,
+              onTap: () {
+                AutoRouter.of(context).push(const ReminderRoute());
+              },
+              child: const Text(TextConstants.reminder,
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500)),
             ),
-            TextButton(
-              onPressed: () {
+            SettingsContainer(
+              withArrow: true,
+              onTap: () {
                 AutoRouter.of(context)
                     .push(ExercisesSearchRoute(isWorkoutCreateScreen: false));
               },
-              child: const Text('Упражнения'),
+              child: const Text("Exersices",
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500)),
             ),
-          ],
+            if (!kIsWeb)
+              SettingsContainer(
+                child: Text(
+                    '${TextConstants.rateUsOn}${Platform.isIOS ? 'App store' : 'Play market'}',
+                    style: const TextStyle(
+                        fontSize: 17, fontWeight: FontWeight.w500)),
+                onTap: () {
+                  return (Platform.isIOS
+                      ? 'https://www.apple.com/app-store/'
+                      : 'https://play.google.com/store');
+                },
+              ),
+            SettingsContainer(
+                onTap: () => {},
+                child: const Text(TextConstants.terms,
+                    style:
+                        TextStyle(fontSize: 17, fontWeight: FontWeight.w500))),
+            SettingsContainer(
+                child: const Text(TextConstants.signOut,
+                    style:
+                        TextStyle(fontSize: 17, fontWeight: FontWeight.w500)),
+                onTap: () {
+                  AuthService.signOut();
+
+                  AutoRouter.of(context).push(const SignInRoute());
+                }),
+            const SizedBox(height: 15),
+            const Text(TextConstants.joinUs,
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+            const SizedBox(height: 15),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                        shape: const CircleBorder(),
+                        backgroundColor: Colors.white,
+                        elevation: 1),
+                    child: Image.asset(PathConstants.facebook)),
+                TextButton(
+                    onPressed: () => {},
+                    style: TextButton.styleFrom(
+                        shape: const CircleBorder(),
+                        backgroundColor: Colors.white,
+                        elevation: 1),
+                    child: Image.asset(PathConstants.instagram)),
+                TextButton(
+                    onPressed: () => {},
+                    style: TextButton.styleFrom(
+                        shape: const CircleBorder(),
+                        backgroundColor: Colors.white,
+                        elevation: 1),
+                    child: Image.asset(PathConstants.twitter)),
+              ],
+            )
+          ]),
         ),
       ),
     );

@@ -64,12 +64,12 @@ class TextConstants {
   static const String statiscticIcon = "Statisctic";
   static const String settingsIcon = "Settings";
 
-  // //Settings screen
-  // static const String joinUs = 'Join us in social media';
-  // static const String calendar = "Calendar";
-  // static const String reminder = "Reminder";
-  // static const String rateUsOn = "Rate us on ";
-  // static const String terms = "Terms & Conditions";
+  //Settings screen
+  static const String joinUs = 'Join us in social media';
+  static const String calendar = "Calendar";
+  static const String reminder = "Reminder";
+  static const String rateUsOn = "Rate us on ";
+  static const String terms = "Terms & Conditions";
 
   // // Workout Details screen common
   // static const String workout = "Workout";
@@ -81,36 +81,36 @@ class TextConstants {
   // static const String next = "Next";
   // static const String nextExercise = "Next Exercise:";
 
-  // // Reminder screen
-  // static const String selectTime = "Please select reminder time";
-  // static const String save = "Save";
-  // static const String repeating = "How often repeat";
+  // Reminder screen
+  static const String selectTime = "Please select reminder time";
+  static const String save = "Save";
+  static const String repeating = "How often repeat";
 
-  // // Reminder day of the week
-  // static const String everyday = "Everyday";
-  // static const String monday_friday = "Mon - Fri";
-  // static const String weekends = "Weekends";
-  // static const String monday = "Monday";
-  // static const String tuesday = "Tue";
-  // static const String wednesday = "Wed";
-  // static const String thursday = "Thu";
-  // static const String friday = "Fri";
-  // static const String saturday = "Sat";
-  // static const String sunday = "Sun";
+  // Reminder day of the week
+  static const String everyday = "Everyday";
+  static const String monday_friday = "Mon - Fri";
+  static const String weekends = "Weekends";
+  static const String monday = "Monday";
+  static const String tuesday = "Tue";
+  static const String wednesday = "Wed";
+  static const String thursday = "Thu";
+  static const String friday = "Fri";
+  static const String saturday = "Sat";
+  static const String sunday = "Sun";
 
-  // // Edit account screen
-  // static const String editAccount = 'Edit account';
-  // static const String editPhoto = 'Edit photo';
-  // static const String fullName = 'Full name';
-  // static const String nameShouldContain2Char =
-  //     'Name should contain at least 2 characters';
-  // static const String changePassword = 'Change Password';
+  // Edit account screen
+  static const String editAccount = 'Edit account';
+  static const String editPhoto = 'Edit photo';
+  static const String fullName = 'Full name';
+  static const String nameShouldContain2Char =
+      'Name should contain at least 2 characters';
+  static const String changePassword = 'Change Password';
 
-  // // Edit account screen -> show settings
-  // static const String cameraPermission = 'Camera permisson';
-  // static const String cameAccess =
-  //     'This app needs camera access to take pictures for upload user profile photo';
-  // static const String deny = 'Deny';
-  // static const String settings = 'Settings';
-  // static const String fullNamePlaceholder = 'Enter your full name';
+  // Edit account screen -> show settings
+  static const String cameraPermission = 'Camera permisson';
+  static const String cameAccess =
+      'This app needs camera access to take pictures for upload user profile photo';
+  static const String deny = 'Deny';
+  static const String settings = 'Settings';
+  static const String fullNamePlaceholder = 'Enter your full name';
 }

@@ -15,6 +15,18 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    ChangePasswordRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ChangePasswordScreen(),
+      );
+    },
+    EditAccountRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const EditAccountScreen(),
+      );
+    },
     ExerciseDetailsRoute.name: (routeData) {
       final args = routeData.argsAs<ExerciseDetailsRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -47,6 +59,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const OnboardingScreen(),
       );
     },
+    ReminderRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ReminderPage(),
+      );
+    },
     ResetPasswordRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -54,9 +72,11 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     SetInitialUserParamRoute.name: (routeData) {
+      final args = routeData.argsAs<SetInitialUserParamRouteArgs>(
+          orElse: () => const SetInitialUserParamRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: SetInitialUserParamScreen(),
+        child: SetInitialUserParamScreen(key: args.key),
       );
     },
     SignInRoute.name: (routeData) {
@@ -127,6 +147,34 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [ChangePasswordScreen]
+class ChangePasswordRoute extends PageRouteInfo<void> {
+  const ChangePasswordRoute({List<PageRouteInfo>? children})
+      : super(
+          ChangePasswordRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ChangePasswordRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [EditAccountScreen]
+class EditAccountRoute extends PageRouteInfo<void> {
+  const EditAccountRoute({List<PageRouteInfo>? children})
+      : super(
+          EditAccountRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'EditAccountRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -234,6 +282,20 @@ class OnboardingRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [ReminderPage]
+class ReminderRoute extends PageRouteInfo<void> {
+  const ReminderRoute({List<PageRouteInfo>? children})
+      : super(
+          ReminderRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ReminderRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [ResetPasswordScreen]
 class ResetPasswordRoute extends PageRouteInfo<void> {
   const ResetPasswordRoute({List<PageRouteInfo>? children})
@@ -249,16 +311,32 @@ class ResetPasswordRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [SetInitialUserParamScreen]
-class SetInitialUserParamRoute extends PageRouteInfo<void> {
-  const SetInitialUserParamRoute({List<PageRouteInfo>? children})
-      : super(
+class SetInitialUserParamRoute
+    extends PageRouteInfo<SetInitialUserParamRouteArgs> {
+  SetInitialUserParamRoute({
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
           SetInitialUserParamRoute.name,
+          args: SetInitialUserParamRouteArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'SetInitialUserParamRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<SetInitialUserParamRouteArgs> page =
+      PageInfo<SetInitialUserParamRouteArgs>(name);
+}
+
+class SetInitialUserParamRouteArgs {
+  const SetInitialUserParamRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'SetInitialUserParamRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for

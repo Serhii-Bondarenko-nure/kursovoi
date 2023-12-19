@@ -1,7 +1,10 @@
 import 'package:authorization/features/authorization/authorization.dart';
+import 'package:authorization/features/authorization/change_password/change_password_screen.dart';
+import 'package:authorization/features/edit_account/edit_account_screen.dart';
 import 'package:authorization/features/exercise_details/exercise_details.dart';
 import 'package:authorization/features/exercises_search/exercises_search.dart';
 import 'package:authorization/features/onboarding/onboarding.dart';
+import 'package:authorization/features/reminder/view/reminder_screen.dart';
 import 'package:authorization/features/set_init_user_param/view/set_initial_user_param_screen.dart';
 import 'package:authorization/features/tab_bar/tab_bar.dart';
 import 'package:authorization/features/firebase_streem/firebase_streem_screen.dart';
@@ -43,5 +46,9 @@ class AppRouter extends _$AppRouter {
 
         AutoRoute(
             page: SetInitialUserParamRoute.page, path: '/set_init_user_param'),
+
+        AutoRoute(page: ChangePasswordRoute.page, path: '/change_password'),
+        AutoRoute(page: ReminderRoute.page, path: '/reminder'),
+        AutoRoute(page: EditAccountRoute.page, path: '/edit_account'),
       ];
 }

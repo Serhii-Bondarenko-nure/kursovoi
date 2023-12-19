@@ -26,8 +26,7 @@ class SignUpScreen extends StatelessWidget {
             currState is ErrorState,
         listener: (context, state) {
           if (state is NextSetInitialUserParamPageState) {
-            AutoRouter.of(context).pushAndPopUntil(
-                const SetInitialUserParamRoute(),
+            AutoRouter.of(context).pushAndPopUntil(SetInitialUserParamRoute(),
                 predicate: (route) => false);
             // AutoRouter.of(context).pushAndPopUntil(
             //     TabBarRoute(transitionIndex: 0),

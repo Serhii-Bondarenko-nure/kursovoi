@@ -1,6 +1,7 @@
 import 'package:authorization/core/services/statistics_weight_service.dart';
 import 'package:authorization/features/main_screens/statistics/bloc/weight_bloc/weight_bloc.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,22 +13,28 @@ class StatisticsContent extends StatelessWidget {
   final weightBloc =
       WeightBloc(statisticsWeightServise: GetIt.I<StatisticsWeightServise>());
 
+  final weightByDateController = TextEditingController();
+  final dateController = TextEditingController();
+
+  final weightController = TextEditingController();
+  final heightController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       padding: const EdgeInsets.only(left: 12, right: 12),
       child: Column(
         children: [
-          Container(
-            height: 140,
-            decoration: const BoxDecoration(
-              color: Color.fromARGB(255, 239, 237, 239),
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-            ),
-          ),
+          // Container(
+          //   height: 140,
+          //   decoration: const BoxDecoration(
+          //     color: Color.fromARGB(255, 239, 237, 239),
+          //     borderRadius: BorderRadius.all(Radius.circular(20)),
+          //   ),
+          // ),
           const SizedBox(height: 10),
           _createWeightGraphBMI(context),
-          const SizedBox(height: 20),
+          const SizedBox(height: 50),
         ],
       ),
     );
@@ -58,7 +65,7 @@ class StatisticsContent extends StatelessWidget {
                     state.weightsMap,
                   ),
                   const SizedBox(height: 10),
-                  _createBMI(context, state.bmi, state.height),
+                  _createBMI(context, state.weight, state.bmi, state.height),
                 ],
               ),
             );
@@ -100,80 +107,83 @@ class StatisticsContent extends StatelessWidget {
         ),
         const SizedBox(height: 5),
         Container(
-          height: 300,
-          padding: const EdgeInsets.all(12),
           decoration: const BoxDecoration(
             color: Color.fromARGB(255, 239, 237, 239),
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Weight",
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 90, 89, 89)),
-                      ),
-                      Text(
-                        "$weight kg",
-                        style: const TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Row(
-                        children: [
-                          const Text(
-                            "Heaviest weight",
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 90, 89, 89)),
-                          ),
-                          const SizedBox(width: 10),
-                          Text(
-                            "$maxWeight",
-                            style: const TextStyle(
+              Padding(
+                padding: const EdgeInsets.only(top: 12, left: 12, right: 12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Weight",
+                          style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 90, 89, 89)),
+                        ),
+                        Text(
+                          "$weight kg",
+                          style: const TextStyle(
+                              fontSize: 22, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Row(
+                          children: [
+                            const Text(
+                              "Heaviest weight",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 90, 89, 89)),
                             ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          const Text(
-                            "Lightest weight",
-                            style: TextStyle(
+                            const SizedBox(width: 10),
+                            Text(
+                              "$maxWeight",
+                              style: const TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 90, 89, 89)),
-                          ),
-                          const SizedBox(width: 10),
-                          Text(
-                            "$minWeight",
-                            style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            const Text(
+                              "Lightest weight",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 90, 89, 89)),
+                            ),
+                            const SizedBox(width: 10),
+                            Text(
+                              "$minWeight",
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-              _createLineChart(context),
+              _createLineChart(
+                  context, weight, minWeight, maxWeight, weightsMap),
+              const SizedBox(height: 12),
             ],
           ),
         )
@@ -181,11 +191,107 @@ class StatisticsContent extends StatelessWidget {
     );
   }
 
-  Widget _createLineChart(BuildContext context) {
-    return Container();
+  Widget _createLineChart(
+    BuildContext context,
+    double weight,
+    double minWeight,
+    double maxWeight,
+    Map<DateTime, double> weightsMap,
+  ) {
+    return SizedBox(
+      height: 250,
+      width: double.infinity,
+      child: AspectRatio(
+        aspectRatio: 1,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Container(
+            width: weightsMap.values.length * 100,
+            padding: const EdgeInsets.only(top: 22, right: 12),
+            child: LineChart(
+              LineChartData(
+                  lineBarsData: [
+                    LineChartBarData(
+                      spots: [
+                        for (var entry in weightsMap.entries)
+                          FlSpot(double.parse(entry.key.day.toString()),
+                              entry.value)
+                      ],
+                      isCurved: true,
+                      isStrokeJoinRound: true,
+                      isStrokeCapRound: true,
+                      dotData: const FlDotData(
+                        show: true,
+                      ),
+                      barWidth: 3,
+                      color: const Color.fromRGBO(5, 22, 253, 1),
+                      belowBarData: BarAreaData(
+                        show: true,
+                        gradient: LinearGradient(
+                          colors: [
+                            const Color.fromRGBO(84, 123, 251, 1)
+                                .withOpacity(0.5),
+                            const Color.fromRGBO(11, 117, 217, 1)
+                                .withOpacity(0.5),
+                            const Color.fromRGBO(22, 148, 194, 1)
+                                .withOpacity(0.5),
+                            const Color.fromARGB(255, 99, 221, 255)
+                                .withOpacity(0.5),
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                        ),
+                      ),
+                    ),
+                  ],
+                  minX: weightsMap.keys.first.day - 3,
+                  maxX: weightsMap.keys.last.day + 3,
+                  minY: ((minWeight - 10) / 10).ceil() * 10,
+                  maxY: ((maxWeight + 11) / 10).ceil() * 10,
+                  titlesData: const FlTitlesData(
+                    show: true,
+                    leftTitles: AxisTitles(
+                      sideTitles: SideTitles(
+                        showTitles: true,
+                        reservedSize: 45,
+                        interval: 10,
+                      ),
+                    ),
+                    bottomTitles: AxisTitles(
+                      sideTitles: SideTitles(
+                        showTitles: true,
+                        reservedSize: 32,
+                        interval: 1,
+                      ),
+                    ),
+                    topTitles: AxisTitles(
+                      sideTitles: SideTitles(showTitles: false),
+                    ),
+                    rightTitles: AxisTitles(
+                      sideTitles: SideTitles(showTitles: false),
+                    ),
+                  ),
+                  gridData: const FlGridData(
+                    show: true,
+                    drawHorizontalLine: true,
+                    drawVerticalLine: false,
+                  ),
+                  borderData: FlBorderData(
+                    show: false,
+                  )),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
-  Widget _createBMI(BuildContext context, double bmi, int height) {
+  Widget _createBMI(
+    BuildContext context,
+    double weight,
+    double bmi,
+    int height,
+  ) {
     final List<Color> colorsBMI = [
       Colors.blue,
       const Color.fromARGB(255, 25, 166, 231),
@@ -284,7 +390,8 @@ class StatisticsContent extends StatelessWidget {
                     barrierColor: Colors.black.withAlpha(50),
                     backgroundColor: Colors.white,
                     builder: (context) =>
-                        _createChangeWeightHeightBottomShettScreen(context));
+                        _createChangeWeightHeightBottomShettScreen(
+                            context, weight, height));
               },
               child: const Text("Edit", style: TextStyle(fontSize: 18)),
             ),
@@ -412,13 +519,11 @@ class StatisticsContent extends StatelessWidget {
 
   //Еще два метода для вызова нижних меню для изменения данных
 
-  Widget _createChangeWeightHeightBottomShettScreen(BuildContext context) {
-    final weightController = TextEditingController();
-    final heightController = TextEditingController();
-
-    weightController.text = weightBloc.weightStr;
-    heightController.text = weightBloc.heightStr;
-
+  Widget _createChangeWeightHeightBottomShettScreen(
+    BuildContext context,
+    double weight,
+    int height,
+  ) {
     return SingleChildScrollView(
       padding:
           EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
@@ -435,10 +540,31 @@ class StatisticsContent extends StatelessWidget {
             _createTextField(context, "Height", heightController, 3, () {}),
             TextButton(
                 onPressed: () {
-                  weightBloc.add(WeightHeightChangeTapped(
-                      weight: double.parse(weightController.text),
-                      height: int.parse(heightController.text)));
-                  AutoRouter.of(context).pop();
+                  if (weightController.text.isNotEmpty &&
+                      heightController.text.isNotEmpty) {
+                    weightBloc.add(WeightHeightChangeTapped(
+                        weight: double.parse(weightController.text),
+                        height: int.parse(heightController.text)));
+                    AutoRouter.of(context).pop();
+                  } else {
+                    showDialog(
+                      barrierColor: Colors.black.withAlpha(50),
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        surfaceTintColor: Colors.white,
+                        title: const Text("Enter weight and height!"),
+                        actions: [
+                          TextButton(
+                            child: const Text(
+                              'Ok',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            onPressed: () => AutoRouter.of(context).pop(),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
                 },
                 child: const Text(
                   "Sumbit",
@@ -451,17 +577,11 @@ class StatisticsContent extends StatelessWidget {
   }
 
   Widget _createChangeWeightByDateBottomShettScreen(BuildContext context) {
-    final weightController = TextEditingController();
-    final heightController = TextEditingController();
-
-    weightController.text = weightBloc.weightStr;
-    heightController.text = weightBloc.heightStr;
-
     return SingleChildScrollView(
       padding:
           EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
       child: SizedBox(
-        height: 310,
+        height: 300,
         child: Column(
           children: [
             const SizedBox(height: 5),
@@ -469,13 +589,41 @@ class StatisticsContent extends StatelessWidget {
               "Enter your weight!",
               style: TextStyle(fontSize: 24),
             ),
-            _createTextField(context, "Weight", weightController, 5, () {}),
+            _createTextField(
+                context, "Weight", weightByDateController, 5, () {}),
+            _createDateTextField(context, dateController),
             TextButton(
                 onPressed: () {
-                  // weightBloc.add(WeightHeightChangeTapped(
-                  //     weight: double.parse(weightController.text),
-                  //     height: int.parse(heightController.text)));
-                  AutoRouter.of(context).pop();
+                  try {
+                    final toDate = dateController.text.split('-');
+                    final date = DateTime(
+                      int.parse(toDate[0]),
+                      int.parse(toDate[1]),
+                      int.parse(toDate[2]),
+                    );
+                    weightBloc.add(AddWeightByDateTapped(
+                        weight: double.parse(weightByDateController.text),
+                        date: date));
+                    AutoRouter.of(context).pop();
+                  } catch (e) {
+                    showDialog(
+                      barrierColor: Colors.black.withAlpha(50),
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        surfaceTintColor: Colors.white,
+                        title: const Text("Enter weight and date!"),
+                        actions: [
+                          TextButton(
+                            child: const Text(
+                              'Ok',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            onPressed: () => AutoRouter.of(context).pop(),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
                 },
                 child: const Text(
                   "Sumbit",
@@ -522,6 +670,37 @@ class StatisticsContent extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _createDateTextField(
+    BuildContext context,
+    final TextEditingController dateController,
+  ) {
+    return SizedBox(
+      height: 70,
+      width: 170,
+      child: TextField(
+        controller: dateController,
+        style: const TextStyle(fontSize: 16),
+        textAlign: TextAlign.center,
+        readOnly: true,
+        autocorrect: false,
+        decoration: const InputDecoration(
+            icon: Icon(Icons.calendar_today), labelText: "Enter Date"),
+        onTap: () async {
+          DateTime? pickedDate = await showDatePicker(
+              context: context,
+              initialDate: DateTime.now(),
+              firstDate: DateTime(2000),
+              lastDate: DateTime(2101));
+
+          if (pickedDate != null) {
+            dateController.text =
+                "${pickedDate?.year}-${pickedDate?.month}-${pickedDate?.day}";
+          }
+        },
       ),
     );
   }
