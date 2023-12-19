@@ -91,58 +91,56 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
     ChangePasswordBloc _bloc = BlocProvider.of<ChangePasswordBloc>(context);
     double height = MediaQuery.of(context).size.height;
     return SafeArea(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
-          child: SizedBox(
-            height: height - 140 - MediaQuery.of(context).padding.bottom,
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const SizedBox(height: 15),
-              const Text(TextConstants.newPassword,
-                  style: TextStyle(fontWeight: FontWeight.w600)),
-              SettingsContainer(
-                child: SettingsTextField(
-                  controller: _newPassController,
-                  obscureText: true,
-                  placeHolder: TextConstants.passwordPlaceholder,
-                ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+        child: SizedBox(
+          height: height - 140 - MediaQuery.of(context).padding.bottom,
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            const SizedBox(height: 15),
+            const Text(TextConstants.newPassword,
+                style: TextStyle(fontWeight: FontWeight.w600)),
+            SettingsContainer(
+              child: SettingsTextField(
+                controller: _newPassController,
+                obscureText: true,
+                placeHolder: TextConstants.passwordPlaceholder,
               ),
-              if (isNewPassInvalid)
-                const Text(TextConstants.passwordErrorText,
-                    style: TextStyle(color: ColorConstants.errorColor)),
-              const SizedBox(height: 10),
-              const Text(TextConstants.confirmPassword,
-                  style: TextStyle(fontWeight: FontWeight.w600)),
-              SettingsContainer(
-                child: SettingsTextField(
-                  controller: _confirmPassController,
-                  obscureText: true,
-                  placeHolder: TextConstants.confirmPasswordPlaceholder,
-                ),
+            ),
+            if (isNewPassInvalid)
+              const Text(TextConstants.passwordErrorText,
+                  style: TextStyle(color: ColorConstants.errorColor)),
+            const SizedBox(height: 10),
+            const Text(TextConstants.confirmPassword,
+                style: TextStyle(fontWeight: FontWeight.w600)),
+            SettingsContainer(
+              child: SettingsTextField(
+                controller: _confirmPassController,
+                obscureText: true,
+                placeHolder: TextConstants.confirmPasswordPlaceholder,
               ),
-              if (isConfirmPassInvalid)
-                const Text(TextConstants.confirmPasswordErrorText,
-                    style: TextStyle(color: ColorConstants.errorColor)),
-              const Spacer(),
-              FitnessButton(
-                title: TextConstants.save,
-                isEnabled: true,
-                onTap: () {
-                  FocusScope.of(context).unfocus();
-                  setState(() {
-                    isNewPassInvalid =
-                        !ValidationService.password(_newPassController.text);
-                    isConfirmPassInvalid =
-                        _newPassController.text != _confirmPassController.text;
-                  });
-                  if (!(isNewPassInvalid || isConfirmPassInvalid)) {
-                    _bloc.add(ChangePassword(newPass: _newPassController.text));
-                  }
-                },
-              ),
-            ]),
-          ),
+            ),
+            if (isConfirmPassInvalid)
+              const Text(TextConstants.confirmPasswordErrorText,
+                  style: TextStyle(color: ColorConstants.errorColor)),
+            const Spacer(),
+            FitnessButton(
+              title: TextConstants.save,
+              isEnabled: true,
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                setState(() {
+                  isNewPassInvalid =
+                      !ValidationService.password(_newPassController.text);
+                  isConfirmPassInvalid =
+                      _newPassController.text != _confirmPassController.text;
+                });
+                if (!(isNewPassInvalid || isConfirmPassInvalid)) {
+                  _bloc.add(ChangePassword(newPass: _newPassController.text));
+                }
+              },
+            ),
+          ]),
         ),
       ),
     );

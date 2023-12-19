@@ -109,7 +109,7 @@ class TabBarScreen extends StatelessWidget {
     final children = [
       WorkoutScreen(),
       SearchScreen(),
-      ChatScreen(),
+      //ChatScreen(),
       StatisticsScreen(),
       SettingsScreen(),
     ];

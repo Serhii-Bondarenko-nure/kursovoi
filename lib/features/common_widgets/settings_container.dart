@@ -19,7 +19,7 @@ class SettingsContainer extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Container(
         width: double.infinity,
-        height: 50,
+        height: 54,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40),
           color: ColorConstants.white,
