@@ -1,6 +1,6 @@
-import 'package:authorization/core/consts/color_constants.dart';
-import 'package:authorization/core/consts/path_constants.dart';
-import 'package:authorization/core/consts/text_constants.dart';
+import 'package:authorization/core/constants/color_constants.dart';
+import 'package:authorization/core/constants/path_constants.dart';
+import 'package:authorization/core/constants/text_constants.dart';
 import 'package:authorization/features/main_screens/chat/view/view.dart';
 import 'package:authorization/features/main_screens/search/search.dart';
 import 'package:authorization/features/main_screens/settings/settings.dart';
@@ -70,20 +70,20 @@ class TabBarScreen extends StatelessWidget {
           ),
           label: TextConstants.searchIcon,
         ),
-        // BottomNavigationBarItem(
-        //   icon: Icon(
-        //     Icons.chat,
-        //     color: bloc.currentIndex == 2
-        //         ? ColorConstants.primaryColor
-        //         : Colors.grey,
-        //   ),
-        //   label: TextConstants.chatIcon,
-        // ),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.chat,
+            color: bloc.currentIndex == 2
+                ? ColorConstants.primaryColor
+                : Colors.grey,
+          ),
+          label: TextConstants.chatIcon,
+        ),
         BottomNavigationBarItem(
           icon: Icon(
             Icons.bar_chart_rounded,
             //Icons.insert_chart_outlined_rounded,
-            color: bloc.currentIndex == 2
+            color: bloc.currentIndex == 3
                 ? ColorConstants.primaryColor
                 : Colors.grey,
           ),
@@ -92,7 +92,7 @@ class TabBarScreen extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Icon(
             Icons.account_circle_outlined,
-            color: bloc.currentIndex == 3
+            color: bloc.currentIndex == 4
                 ? ColorConstants.primaryColor
                 : Colors.grey,
           ),
@@ -109,7 +109,7 @@ class TabBarScreen extends StatelessWidget {
     final children = [
       WorkoutScreen(),
       SearchScreen(),
-      //ChatScreen(),
+      ChatScreen(),
       StatisticsScreen(),
       SettingsScreen(),
     ];

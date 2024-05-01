@@ -1,5 +1,5 @@
-import 'package:authorization/core/consts/exercises_reporitory_constants.dart';
-import 'package:authorization/core/consts/hive_constants.dart';
+import 'package:authorization/core/constants/exercises_reporitory_constants.dart';
+import 'package:authorization/core/constants/hive_constants.dart';
 import 'package:authorization/core/repositories/exercises/exercises.dart';
 import 'package:authorization/core/services/statistics_weight_service.dart';
 import 'package:authorization/core/services/workout_create_service.dart';

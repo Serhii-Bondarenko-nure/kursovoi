@@ -9,7 +9,7 @@ class ExercisesReporitoryConstants {
 
   //Headers
   static const Map<String, String> headers = {
-    "X-RapidAPI-Key": "05287cf427msh80ead621be0569ap1c3bcajsn5493efe72163",
+    "X-RapidAPI-Key": "7a1118f2dfmsh84cca89f44f7ee8p1df3bdjsn5532cc0b495d",
     "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
   };
 

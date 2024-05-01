@@ -23,7 +23,7 @@ class WorkoutPerformingContente extends StatelessWidget {
         listener: (context, state) {
           if (state is NextStaticticsPage) {
             AutoRouter.of(context).pushAndPopUntil(
-                TabBarRoute(transitionIndex: 2),
+                TabBarRoute(transitionIndex: 3),
                 predicate: (route) => false);
           } else if (state is NextExerciseDetailsPage) {
             AutoRouter.of(context)

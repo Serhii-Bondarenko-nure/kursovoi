@@ -1,5 +1,5 @@
-import 'package:authorization/core/consts/color_constants.dart';
-import 'package:authorization/core/consts/text_constants.dart';
+import 'package:authorization/core/constants/color_constants.dart';
+import 'package:authorization/core/constants/text_constants.dart';
 import 'package:authorization/features/reminder/bloc/reminder_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,4 +1,4 @@
-import 'package:authorization/core/consts/color_constants.dart';
+import 'package:authorization/core/constants/color_constants.dart';
 import 'package:authorization/core/services/validation_service.dart';
 import 'package:authorization/features/authorization/reset_password/bloc/reset_password_bloc.dart';
 import 'package:authorization/features/common_widgets/fitness_button.dart';

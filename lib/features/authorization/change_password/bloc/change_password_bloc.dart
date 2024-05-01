@@ -1,4 +1,4 @@
-import 'package:authorization/core/consts/text_constants.dart';
+import 'package:authorization/core/constants/text_constants.dart';
 import 'package:authorization/core/services/user_service.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

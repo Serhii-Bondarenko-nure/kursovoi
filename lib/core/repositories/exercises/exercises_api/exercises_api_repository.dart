@@ -1,4 +1,4 @@
-import 'package:authorization/core/consts/exercises_reporitory_constants.dart';
+import 'package:authorization/core/constants/exercises_reporitory_constants.dart';
 import 'package:authorization/core/repositories/exercises/exercises_api/abstract_exercises_api_repository.dart';
 import 'package:authorization/core/repositories/exercises/models/body_parts.dart';
 import 'package:authorization/core/repositories/exercises/models/equipment.dart';

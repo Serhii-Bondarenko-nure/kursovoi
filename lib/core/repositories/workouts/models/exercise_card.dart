@@ -1,4 +1,4 @@
-import 'package:authorization/core/consts/hive_constants.dart';
+import 'package:authorization/core/constants/hive_constants.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';

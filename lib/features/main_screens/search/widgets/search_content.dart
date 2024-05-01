@@ -1,4 +1,4 @@
-import 'package:authorization/core/consts/text_constants.dart';
+import 'package:authorization/core/constants/text_constants.dart';
 import 'package:authorization/features/main_screens/search/bloc/search_screen_bloc/search_screen_bloc.dart';
 import 'package:authorization/features/main_screens/search/widgets/workout_category_tile.dart';
 import 'package:flutter/material.dart';

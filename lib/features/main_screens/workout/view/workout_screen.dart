@@ -1,5 +1,5 @@
-import 'package:authorization/core/consts/color_constants.dart';
-import 'package:authorization/core/consts/text_constants.dart';
+import 'package:authorization/core/constants/color_constants.dart';
+import 'package:authorization/core/constants/text_constants.dart';
 import 'package:authorization/core/services/statistics_weight_service.dart';
 import 'package:authorization/core/services/workout_create_service.dart';
 import 'package:authorization/core/services/workout_performing_service.dart';

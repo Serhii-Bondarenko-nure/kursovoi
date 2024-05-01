@@ -1,4 +1,4 @@
-import 'package:authorization/core/consts/color_constants.dart';
+import 'package:authorization/core/constants/color_constants.dart';
 import 'package:authorization/core/repositories/workouts/models/workout.dart';
 import 'package:authorization/core/services/workout_performing_service.dart';
 import 'package:authorization/features/common_widgets/fitness_button.dart';

@@ -1,6 +1,6 @@
-import 'package:authorization/core/consts/color_constants.dart';
-import 'package:authorization/core/consts/path_constants.dart';
-import 'package:authorization/core/consts/text_constants.dart';
+import 'package:authorization/core/constants/color_constants.dart';
+import 'package:authorization/core/constants/path_constants.dart';
+import 'package:authorization/core/constants/text_constants.dart';
 import 'package:authorization/features/onboarding/bloc/onboarding_bloc.dart';
 import 'package:authorization/features/onboarding/widgets/widgets.dart';
 import 'package:dots_indicator/dots_indicator.dart';

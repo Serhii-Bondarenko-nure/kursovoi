@@ -1,4 +1,4 @@
-import 'package:authorization/core/consts/color_constants.dart';
+import 'package:authorization/core/constants/color_constants.dart';
 import 'package:authorization/core/services/workouts_service.dart';
 import 'package:authorization/features/common_widgets/workout_card.dart';
 import 'package:authorization/features/main_screens/search/bloc/search_screen_bloc/search_screen_bloc.dart';

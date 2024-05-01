@@ -1,4 +1,4 @@
-import 'package:authorization/core/consts/text_constants.dart';
+import 'package:authorization/core/constants/text_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
