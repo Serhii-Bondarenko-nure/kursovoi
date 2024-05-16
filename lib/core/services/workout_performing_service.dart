@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:ffi';
 
 import 'package:authorization/core/repositories/workouts/models/exercise_card.dart';
 import 'package:authorization/core/repositories/workouts/models/workout.dart';

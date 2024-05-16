@@ -1,3 +1,4 @@
+import 'package:authorization/core/services/chat/chat_service.dart';
 import 'package:authorization/core/services/statistics_weight_service.dart';
 import 'package:authorization/core/services/workout_create_service.dart';
 import 'package:authorization/core/services/workout_performing_service.dart';
@@ -13,17 +14,21 @@ class AuthService {
     final User user = result.user!;
     await user.updateDisplayName(name);
 
-    await registerUserInDatabase();
+    await registerUserInDatabase(email, name);
 
     return user;
   }
 
-  static Future<bool> registerUserInDatabase() async {
+  static Future<bool> registerUserInDatabase(String email, String name) async {
     await GetIt.I<WorkoutCreateService>().updateUserWorkoutsLastId(1000);
     await GetIt.I<WorkoutPerformingService>().updateIsTrainingInProgress(false);
     await GetIt.I<WorkoutPerformingService>().updateLastWorkoutInHistory(0);
     await GetIt.I<StatisticsWeightServise>().setMinWeight(1000);
     await GetIt.I<StatisticsWeightServise>().setMaxWeight(0);
+
+    await GetIt.I<ChatService>().setUserId();
+    await GetIt.I<ChatService>().setUserEmail(email);
+    await GetIt.I<ChatService>().setDisplayName(name);
 
     return true;
   }

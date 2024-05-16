@@ -1,6 +1,7 @@
 import 'package:authorization/core/constants/exercises_reporitory_constants.dart';
 import 'package:authorization/core/constants/hive_constants.dart';
 import 'package:authorization/core/repositories/exercises/exercises.dart';
+import 'package:authorization/core/services/chat/chat_service.dart';
 import 'package:authorization/core/services/statistics_weight_service.dart';
 import 'package:authorization/core/services/workout_create_service.dart';
 import 'package:authorization/core/services/workout_performing_service.dart';
@@ -156,6 +157,13 @@ Future<void> main() async {
   //Statistics Service
   GetIt.I.registerLazySingleton<StatisticsWeightServise>(
     () => StatisticsWeightServise(
+      firebaseDatabase: firebaseDatabase,
+    ),
+  );
+
+  //Chat Service
+  GetIt.I.registerLazySingleton<ChatService>(
+    () => ChatService(
       firebaseDatabase: firebaseDatabase,
     ),
   );

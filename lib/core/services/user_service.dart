@@ -1,5 +1,7 @@
 import 'package:authorization/core/services/auth_service.dart';
+import 'package:authorization/core/services/chat/chat_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get_it/get_it.dart';
 
 class UserService {
   static final FirebaseAuth firebase = FirebaseAuth.instance;
@@ -18,6 +20,10 @@ class UserService {
     try {
       await firebase.currentUser?.updateDisplayName(displayName);
       await firebase.currentUser?.updateEmail(email);
+
+      await GetIt.I<ChatService>().setUserEmail(email);
+      await GetIt.I<ChatService>().setDisplayName(displayName);
+
       return true;
     } catch (e) {
       throw Exception(e);

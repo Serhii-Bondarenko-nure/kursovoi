@@ -13,7 +13,7 @@ part 'edit_account_state.dart';
 
 class EditAccountBloc extends Bloc<EditAccountEvent, EditAccountState> {
   EditAccountBloc() : super(EditAccountInitial()) {
-    on<EditAccountEvent>((event, emit) async {
+    on<UploadImage>((event, emit) async {
       try {
         final XFile? image =
             await ImagePicker().pickImage(source: ImageSource.gallery);

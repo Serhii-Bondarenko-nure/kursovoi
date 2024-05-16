@@ -1,6 +1,5 @@
 import 'package:authorization/core/repositories/workouts/models/exercise_card.dart';
 import 'package:equatable/equatable.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'workout.g.dart';

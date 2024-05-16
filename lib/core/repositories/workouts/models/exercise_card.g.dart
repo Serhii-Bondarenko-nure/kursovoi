@@ -7,12 +7,12 @@ part of 'exercise_card.dart';
 // **************************************************************************
 
 ExerciseCard _$ExerciseCardFromJson(Map<String, dynamic> json) => ExerciseCard(
-      exerciseTime: json['exerciseTime'] as int,
+      exerciseTime: (json['exerciseTime'] as num).toInt(),
       gifUrl: json['gifUrl'] as String,
       id: ExerciseCard._idFromJson(json['id'] as String),
       name: json['name'] as String,
-      sets: json['sets'] as int,
-      repetitions: json['repetitions'] as int,
+      sets: (json['sets'] as num).toInt(),
+      repetitions: (json['repetitions'] as num).toInt(),
       target: json['target'] as String,
     );
 

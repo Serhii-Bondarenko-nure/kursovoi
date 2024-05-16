@@ -7,7 +7,7 @@ part of 'workout.dart';
 // **************************************************************************
 
 Workout _$WorkoutFromJson(Map<String, dynamic> json) => Workout(
-      id: json['id'] as int,
+      id: (json['id'] as num).toInt(),
       imageUrl: json['imageUrl'] as String,
       isComplete: json['isComplete'] as bool,
       isUserOwner: json['isUserOwner'] as bool,
@@ -18,7 +18,7 @@ Workout _$WorkoutFromJson(Map<String, dynamic> json) => Workout(
           .toList(),
       exercises:
           Workout._exercisesFromJson(json['exercises'] as Map<String, dynamic>),
-      minutesWorkoutTime: json['minutesWorkoutTime'] as int,
+      minutesWorkoutTime: (json['minutesWorkoutTime'] as num).toInt(),
       lastComplete: json['lastComplete'] == null
           ? null
           : DateTime.parse(json['lastComplete'] as String),

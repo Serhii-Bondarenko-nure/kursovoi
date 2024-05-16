@@ -21,6 +21,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ChangePasswordScreen(),
       );
     },
+    ChatWithUserRoute.name: (routeData) {
+      final args = routeData.argsAs<ChatWithUserRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ChatWithUserScreen(
+          key: args.key,
+          user: args.user,
+        ),
+      );
+    },
     EditAccountRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -169,6 +179,44 @@ class ChangePasswordRoute extends PageRouteInfo<void> {
   static const String name = 'ChangePasswordRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ChatWithUserScreen]
+class ChatWithUserRoute extends PageRouteInfo<ChatWithUserRouteArgs> {
+  ChatWithUserRoute({
+    Key? key,
+    required UserChatModel user,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ChatWithUserRoute.name,
+          args: ChatWithUserRouteArgs(
+            key: key,
+            user: user,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ChatWithUserRoute';
+
+  static const PageInfo<ChatWithUserRouteArgs> page =
+      PageInfo<ChatWithUserRouteArgs>(name);
+}
+
+class ChatWithUserRouteArgs {
+  const ChatWithUserRouteArgs({
+    this.key,
+    required this.user,
+  });
+
+  final Key? key;
+
+  final UserChatModel user;
+
+  @override
+  String toString() {
+    return 'ChatWithUserRouteArgs{key: $key, user: $user}';
+  }
 }
 
 /// generated route for
