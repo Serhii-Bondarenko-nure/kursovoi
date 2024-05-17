@@ -42,7 +42,7 @@ class WorkoutScreen extends StatelessWidget {
               //     GetIt.I<WorkoutPerformingService>();
               // await workoutPerformingService.getWorkoutHistoryData();
 
-              //await GetIt.I<ChatService>().setDisplayName("lalala");
+              //await GetIt.I<ChatService>().GetMessages();
             },
             tooltip: 'Create',
             shape:

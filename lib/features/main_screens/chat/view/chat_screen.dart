@@ -35,7 +35,7 @@ class ChatScreen extends StatelessWidget {
         listener: (context, state) {
           if (state is NextChatWithUserPage) {
             AutoRouter.of(context)
-                .push(ChatWithUserRoute(user: state.user))
+                .push(ChatRoomRoute(user: state.user))
                 .then((result) => chatBloc.add(LoadChatList()));
           } else if (state is ChatErrorState) {
             ScaffoldMessenger.of(context).showSnackBar(

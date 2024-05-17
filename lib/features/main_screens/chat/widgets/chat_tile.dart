@@ -17,32 +17,42 @@ class ChatTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (user.id != FirebaseAuth.instance.currentUser!.uid) {
-      return ListTile(
-        leading: //Icon(Icons.abc),
-            user.photoUrl == null
-                ? const CircleAvatar(
-                    backgroundImage: AssetImage(PathConstants.profile),
-                    radius: 30)
-                : CircleAvatar(
-                    radius: 30,
-                    child: ClipOval(
-                        child: FadeInImage.assetNetwork(
-                      placeholder: PathConstants.profile,
-                      image: user.photoUrl,
-                      fit: BoxFit.cover,
-                      width: 200,
-                      height: 120,
-                    )),
-                  ),
-        title: Text(
-          user.displayName,
-          style: const TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-          ),
+      return Container(
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 235, 233, 233),
+          borderRadius: BorderRadius.circular(12),
         ),
-        //trailing: const Icon(Icons.arrow_forward_ios),
-        onTap: onTap,
+        padding: const EdgeInsets.only(
+          top: 12,
+          bottom: 12,
+          left: 10,
+          right: 10,
+        ),
+        child: ListTile(
+          leading: user.photoUrl == null
+              ? const CircleAvatar(
+                  backgroundImage: AssetImage(PathConstants.profile),
+                  radius: 30)
+              : CircleAvatar(
+                  radius: 30,
+                  child: ClipOval(
+                      child: FadeInImage.assetNetwork(
+                    placeholder: PathConstants.profile,
+                    image: user.photoUrl,
+                    fit: BoxFit.cover,
+                    width: 200,
+                    height: 120,
+                  )),
+                ),
+          title: Text(
+            user.displayName,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+            ),
+          ),
+          onTap: onTap,
+        ),
       );
     } else {
       return Container();

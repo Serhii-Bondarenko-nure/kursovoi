@@ -21,11 +21,11 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ChangePasswordScreen(),
       );
     },
-    ChatWithUserRoute.name: (routeData) {
-      final args = routeData.argsAs<ChatWithUserRouteArgs>();
+    ChatRoomRoute.name: (routeData) {
+      final args = routeData.argsAs<ChatRoomRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: ChatWithUserScreen(
+        child: ChatRoomScreen(
           key: args.key,
           user: args.user,
         ),
@@ -182,29 +182,29 @@ class ChangePasswordRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [ChatWithUserScreen]
-class ChatWithUserRoute extends PageRouteInfo<ChatWithUserRouteArgs> {
-  ChatWithUserRoute({
+/// [ChatRoomScreen]
+class ChatRoomRoute extends PageRouteInfo<ChatRoomRouteArgs> {
+  ChatRoomRoute({
     Key? key,
     required UserChatModel user,
     List<PageRouteInfo>? children,
   }) : super(
-          ChatWithUserRoute.name,
-          args: ChatWithUserRouteArgs(
+          ChatRoomRoute.name,
+          args: ChatRoomRouteArgs(
             key: key,
             user: user,
           ),
           initialChildren: children,
         );
 
-  static const String name = 'ChatWithUserRoute';
+  static const String name = 'ChatRoomRouteArgs';
 
-  static const PageInfo<ChatWithUserRouteArgs> page =
-      PageInfo<ChatWithUserRouteArgs>(name);
+  static const PageInfo<ChatRoomRouteArgs> page =
+      PageInfo<ChatRoomRouteArgs>(name);
 }
 
-class ChatWithUserRouteArgs {
-  const ChatWithUserRouteArgs({
+class ChatRoomRouteArgs {
+  const ChatRoomRouteArgs({
     this.key,
     required this.user,
   });
@@ -215,7 +215,7 @@ class ChatWithUserRouteArgs {
 
   @override
   String toString() {
-    return 'ChatWithUserRouteArgs{key: $key, user: $user}';
+    return 'ChatRoomRouteArgs{key: $key, user: $user}';
   }
 }
 

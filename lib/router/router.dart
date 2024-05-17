@@ -1,7 +1,7 @@
 import 'package:authorization/core/services/chat/user_chat_model.dart';
 import 'package:authorization/features/authorization/authorization.dart';
 import 'package:authorization/features/authorization/change_password/change_password_screen.dart';
-import 'package:authorization/features/chat_with_user/view/chat_with_user_screen.dart';
+import 'package:authorization/features/chat_room/view/chat_room_screen.dart';
 import 'package:authorization/features/edit_account/edit_account_screen.dart';
 import 'package:authorization/features/exercise_details/exercise_details.dart';
 import 'package:authorization/features/exercises_search/exercises_search.dart';
@@ -45,7 +45,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
             page: WorkoutPerformingRoute.page, path: '/workout_performing'),
         //Chat Pages
-        AutoRoute(page: ChatWithUserRoute.page, path: '/chat_with_user'),
+        AutoRoute(page: ChatRoomRoute.page, path: '/chat_room_user'),
 
         AutoRoute(
             page: WorkoutSettingsBottomShettRoute.page,
